@@ -1,0 +1,14 @@
+add_version: "0.1"
+project:
+  id: "PRJ-example"
+  name: "Example ADD workspace"
+  mode: "hybrid"
+policies:
+  remote_context: "review-before-remote"
+  draft_writing: "allowed"
+  canonical_promotion: "explicit-approval"
+  execution: "explicit-approval"
+  publishing: "explicit-approval"
+graph:
+  mode: "derived"
+  output: "generated/graph.production.json"
