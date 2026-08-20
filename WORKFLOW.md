@@ -5,11 +5,11 @@
 1. **Discover**: understand the request and ask only questions needed to avoid a risky assumption.
 2. **Draft**: create a proposal under `vault/drafts/` or a draft spec under `specs/`.
 3. **Analyze**: identify missing information, alternatives, risks, dependencies, affected canonical records, and the proposed process.
-4. **Approve intent**: the user accepts, edits, or rejects the proposal before promotion to canon.
+4. **Approve intent**: the user accepts, edits, or rejects the proposal before initial promotion to canon.
 5. **Specify**: create or update a bounded spec with acceptance criteria and non-goals.
 6. **Plan**: produce tasks, expected file changes, tests, evidence, and any approval checkpoint.
-7. **Approve execution**: the user authorizes the exact plan or a selected option.
-8. **Execute**: AI performs only the approved scope.
+7. **Approve the plan of flight**: the user authorizes the bounded scope, validation, limits, and recovery approach once.
+8. **Execute autonomously**: AI performs the approved scope and pauses only for a stop condition.
 9. **Verify**: collect test results, observations, unresolved items, and changed files.
 10. **Reconcile**: propose updates to affected canonical records and regenerate derived artifacts.
 
@@ -17,11 +17,13 @@
 
 | Gate | Required before | The user sees |
 | --- | --- | --- |
-| Canonical promotion | Moving draft knowledge to `vault/canon` | diff, source/evidence, relations, contradictions |
-| Execution | Material file/code/content changes | plan, scope, alternatives, affected files, tests |
+| Initial canon / intent change | Establishing or changing vision, rules, architecture, or lore | diff, source/evidence, relations, contradictions |
+| Plan of flight | A bounded spec's local execution | scope, alternatives, affected files, tests, limits |
 | Sensitive context | Sending vault content to a remote model | exact context, recipient/provider, reason |
 | Destructive action | Delete, overwrite, reset, migration | targets, backup/recovery option, consequence |
 | Publication | GitHub push or other external sharing | destination, files, secrets/privacy scan |
+
+After a plan of flight is approved, normal code changes, validation, generated artifacts, evidence, and operational vault updates do not create additional gates. See [AUTONOMY.md](AUTONOMY.md).
 
 ## Process recommendations
 
@@ -50,4 +52,4 @@ Recommend multiple agents only if the work can be split into independent streams
 
 ## Completion rule
 
-A change is complete only when its acceptance criteria are verified, evidence is recorded, and every changed canonical fact has either an approved vault update or an explicit statement that no canonical update is required.
+A change is complete only when its acceptance criteria are verified, evidence is recorded, and every changed canonical fact has either an automatic operational update, an approved intent update, or an explicit statement that no canonical update is required.

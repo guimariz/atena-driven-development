@@ -12,11 +12,13 @@ Suggested modes:
 
 - `local-only`: no project content sent to remote providers.
 - `review-before-remote`: show each context package for approval.
-- `remote-allowed`: user allows non-sensitive, scoped context after a project-level policy review.
+- `scoped-remote-context`: send only approved, task-relevant non-sensitive context and record a transfer manifest.
 
-## Draft-first writing
+## Draft-first and operational writing
 
-AI may create a new draft automatically when it is the direct result of a user request. It must not silently promote, rewrite, overwrite, or delete canonical content. Promotion requires a visible diff and explicit approval.
+AI may create a new draft automatically when it is the direct result of a user request. After a plan of flight is approved, it may also update canonical operational facts that directly result from that spec: status, validation results, changed-file references, and evidence links.
+
+It must not silently change canonical intent: vision, product rules, requirements, architecture, security decisions, or established lore. Those changes require a visible diff and explicit approval.
 
 ## Evidence and research
 
@@ -24,7 +26,15 @@ Research lives outside canon until reviewed. Important claims record a source, d
 
 ## Git and publishing
 
-Before a commit or push, check the staged scope, secrets, personal data, draft-only content, and generated files. Ask for the destination and explicit approval before publishing.
+Before a commit or push, check the staged scope, secrets, personal data, draft-only content, and generated files. A plan of flight may allow automatic local commits on its isolated run branch. Always ask for the destination and explicit approval before merging, pushing, deploying, or publishing.
+
+## Dependencies
+
+The default policy is `allowlist-with-plan`. Atena may install a project-local dependency only if it is already allowlisted and named by an approved plan of flight. Any new dependency pauses the run for review; global installation always requires approval.
+
+## Skills and agents
+
+Record a skill opportunity after two similar procedures. Propose a skill after three with concrete examples, expected benefit, scope, permissions, alternatives, and validation. Do not create it without approval. Agents and multi-agents follow the same principle: recommend only when their bounded delivery or independent parallelism is demonstrable.
 
 ## Graph policy
 

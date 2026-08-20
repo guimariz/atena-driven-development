@@ -22,13 +22,23 @@ add_version: "0.1"
 project:
   id: "PRJ-example"
   name: "Example"
-  mode: "project" # project | knowledge | hybrid
 policies:
-  remote_context: "review-before-remote"
+  remote_context: "scoped-remote-context"
   draft_writing: "allowed"
-  canonical_promotion: "explicit-approval"
-  execution: "explicit-approval"
   publishing: "explicit-approval"
+  dependencies: "allowlist-with-plan"
+autonomy:
+  profile: "guarded-autopilot"
+  execution_approval: "per-spec"
+  report_mode: "exceptions-and-final"
+  max_retries: 3
+git:
+  local_commits: "automatic-on-run-branch"
+  merge: "explicit-approval"
+  publish: "explicit-approval"
+skills:
+  record_opportunity_after_repetitions: 2
+  propose_after_repetitions: 3
 graph:
   mode: "derived"
   output: "generated/graph.production.json"
@@ -61,6 +71,8 @@ Each spec folder contains `spec.md`, `plan.md`, `tasks.md`, and `acceptance.md`.
 
 - IDs are unique and never reused.
 - Relations use known types and point to existing IDs.
-- Approved records cannot be rewritten without an approved successor or revision record.
+- Canonical intent cannot be rewritten without an approved successor or revision record.
+- Operational canonical fields may be updated automatically only when caused directly by an approved spec and recorded in its evidence.
 - Every spec includes scope, non-goals, acceptance criteria, and impact.
-- Every execution has evidence and a reconciliation result.
+- Every executable spec has a plan-of-flight approval, evidence, and a reconciliation result.
+- The spec defines its quality gates; no predefined project type is required.

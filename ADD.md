@@ -45,14 +45,9 @@ Content is canonical only when all apply:
 
 Research and model output are evidence, not canon, until promoted by a user-approved proposal.
 
-## Supported modes
+## Type-agnostic projects
 
-ADD uses the same contract for both modes:
-
-| Mode | Typical canonical records | Typical spec |
-| --- | --- | --- |
-| Project | vision, requirements, architecture, decisions, risks | feature, fix, migration, integration |
-| Knowledge / lore | entities, locations, factions, events, timelines, rules, sources | research, new arc, contradiction repair, canon review |
+ADD does not require an initial project type or template profile. The same contract can describe software, a game, an automation, a research vault, lore, or another project. Its canonical records and each spec define the relevant quality gates, risks, and acceptance criteria.
 
 ## Human authority
 
