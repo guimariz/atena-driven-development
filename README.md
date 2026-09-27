@@ -1,42 +1,100 @@
-# Atena Driven Development (ADD) v0.1
+# Atena Driven Development (ADD) v0.2
 
-ADD is an open, local-first method for structuring projects and knowledge vaults with AI under human direction. Its default autonomy profile is **Autopilot Guarded**: the AI executes an approved bounded change independently and pauses only for meaningful exceptions.
+ADD is an open, local-first method for structuring projects and durable project memory with AI under human direction. Its default autonomy profile is **Autopilot Guarded**.
 
-ADD is project-type agnostic. A project defines its own quality gates in its canonical vault and specs instead of selecting a predefined profile.
+ADD v0.2 introduces an explicit interaction protocol:
 
-> Intent -> canonical vault -> process recommendation -> spec -> plan -> approval -> execution -> evidence -> updated memory.
+- Address **Atena** explicitly to enter **Guided ADD**, where Atena structures the change, closes meaningful gaps, recommends the simplest sufficient plan, asks for one approval, and then implements and validates it.
+- Give a direct imperative without addressing Atena to use **Direct Execution**, where ordinary local work may be performed immediately and Atena proposes a truthful post-hoc reconciliation afterward.
 
-It works with Codex, Claude, local models, or another capable assistant. It does not require a proprietary application, database, or cloud service. A future Atena executable is a user interface and orchestrator for the same files.
+> Intent -> mode detection -> project evidence -> recommendation -> spec -> plan -> approval -> execution -> validation -> evidence -> reconciled memory.
+
+ADD is project-type agnostic and provider agnostic. It can be used with Codex, Claude, Hermes, local models, or another capable assistant. The project files remain the durable contract.
 
 ## What this package contains
 
 - [ADD.md](ADD.md): definition, principles, and artifact model.
-- [WORKFLOW.md](WORKFLOW.md): the operational lifecycle and approval gates.
-- [AUTONOMY.md](AUTONOMY.md): the Autopilot Guarded profile, stop conditions, and quality loop.
-- [POLICIES.md](POLICIES.md): local-first, privacy, canonical-content, and Git policies.
-- [CONTRACT.md](CONTRACT.md): portable folder contract and validation rules.
-- [templates](templates): copyable templates for a vault, spec, skill, and agent.
-- [example-project](example-project): a minimal initialized ADD workspace.
+- [INTERACTION.md](INTERACTION.md): Atena invocation, Guided ADD, Direct Execution, gap handling, and interaction practices.
+- [WORKFLOW.md](WORKFLOW.md): lifecycle, readiness rules, reconciliation, and approval gates.
+- [AUTONOMY.md](AUTONOMY.md): Autopilot Guarded, direct-execution authority, stop conditions, and quality loop.
+- [POLICIES.md](POLICIES.md): local-first, privacy, canonical-content, dependency, Git, and reconciliation policies.
+- [CONTRACT.md](CONTRACT.md): portable `.atena/` folder contract and validation rules.
+- [templates](templates): copyable templates for canonical records, specs, skills, and agents.
+- [example-project](example-project): a minimal ADD v0.2 workspace with planned and post-hoc examples.
 
 ## Quick start
 
-1. Copy the `atena/` folder from `example-project/` into a new or existing project.
-2. Edit `atena/add.yaml` to set the project identity and policies.
-3. Create an initial proposal in `atena/vault/drafts/` using the canonical-record template.
-4. Review and approve the initial project intent before it becomes canonical.
-5. Create one change folder under `atena/specs/` using the spec template.
-6. Approve its plan of flight once. Atena then executes the in-scope local work, validates it, reconciles operational vault facts, and reports the result.
-7. Atena pauses only for a stop condition or an always-approve action listed in [AUTONOMY.md](AUTONOMY.md).
+1. Copy `example-project/.atena/` into the root of a new or existing project.
+2. Edit `.atena/add.yaml` to set project identity and policies.
+3. On the first Atena interaction in the project, Atena checks the ADD workspace and the optional RTK optimization.
+4. Use `Atena, ...` when you want Guided ADD.
+5. Review the recommended plan, resolve blocking gaps, and approve once. That approval promotes the prepared spec and authorizes its bounded implementation.
+6. Use a direct imperative without addressing Atena when you intentionally want immediate local implementation. Afterward, reconcile the implementation into a `post-hoc` spec.
+7. Atena pauses for the stop conditions and always-approve actions in [AUTONOMY.md](AUTONOMY.md).
 
-## Core rule
+## Interaction examples
 
-AI may create drafts, make in-scope local changes, validate them, generate evidence, and update operational facts after the plan of flight is approved. It may not silently change canonical intent, publish, make destructive changes, alter security-sensitive behavior, or send sensitive context to a remote provider.
+### Guided ADD
+
+```text
+Atena, add Google authentication to the application.
+```
+
+Atena should inspect the project, explain the relevant decisions, recommend defaults, identify gaps, prepare the spec and implementation plan, and request approval only when the plan is ready.
+
+### Direct Execution
+
+```text
+Add a settings page using the project's existing components.
+```
+
+The requested ordinary local change may be implemented directly. After implementation, Atena must disclose that the change preceded an ADD spec and offer to create a truthful `post-hoc` spec and reconcile the canonical vault.
+
+### Reconcile an existing direct change
+
+```text
+Atena, reconcile the change I just made.
+```
+
+Atena inspects the actual implementation and evidence instead of pretending that a prior spec existed.
+
+## Core rules
+
+- `.atena/` is the canonical ADD workspace directory for v0.2.
+- `atena/` is a legacy v0.1 workspace. Detect it and propose migration; do not silently rename it.
+- Explicitly addressing Atena activates Guided ADD. Merely quoting or mentioning the word `Atena` as content does not.
+- Guided ADD requires zero unresolved `BLOCKING` gaps before approval.
+- `RESOLVABLE` gaps should receive a recommended default instead of unnecessary questioning.
+- `DEFERRED` items remain visible and explicitly outside the current scope.
+- Direct Execution bypasses the pre-implementation spec/plan workflow, not destructive, security, privacy, publication, credential, or other always-approve gates.
+- Never fabricate history. A spec created after implementation uses `origin: post-hoc` and `implementation_preceded_spec: true`.
+- Prefer minimum sufficient architecture, reuse before creation, and repository evidence over assumptions.
+
+## RTK optimization
+
+At the beginning of a project, Atena checks whether the optional [RTK](https://github.com/rtk-ai/rtk) token-saving CLI is available using `rtk --version` and `rtk gain`. If the correct RTK is not available, Atena briefly explains its purpose and asks whether the user wants it configured. The choice is recorded so the question is not repeated unnecessarily.
+
+RTK is recommended, not required. ADD must remain usable without it.
 
 ## Status vocabulary
 
-`draft` -> `proposed` -> `approved` -> `implemented` -> `verified` -> `superseded`
+Canonical records:
 
-Only `approved` canonical records may drive an implementation plan. `implemented` and `verified` add execution evidence; they do not replace the original intent.
+```text
+draft -> proposed -> approved -> implemented -> verified -> superseded
+```
+
+Specs:
+
+```text
+draft -> ready-for-approval -> approved -> implemented -> verified -> superseded
+```
+
+A `post-hoc` spec may enter at `implemented` after reconstruction, but it must preserve its real origin and evidence.
+
+## Migrating from v0.1
+
+When `atena/` exists and `.atena/` does not, treat the workspace as legacy. Present the planned rename and affected references, then migrate only after approval. Do not maintain two competing canonical workspaces.
 
 ## License
 

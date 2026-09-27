@@ -1,8 +1,14 @@
-# Tasks
+# Tasks — SPEC-XXX
 
-- [ ] Task 1
-- [ ] Task 2
+## Planned / reconstructed tasks
 
-## Execution boundary
+- [ ] T1 — <bounded task>
+  - Evidence: <expected or observed evidence>
+- [ ] T2 — <bounded task>
+  - Evidence: <expected or observed evidence>
 
-State exactly what the AI is allowed to change after approval.
+For post-hoc specs, mark tasks according to observed implementation and label the section as reconstructed.
+
+## Deferred
+
+- <explicit deferred work, if any>
