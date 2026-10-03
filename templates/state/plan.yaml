@@ -1,0 +1,7 @@
+version: 1
+
+# No plan is active in a newly initialized workspace.
+active_plan: null
+plan_cursor: null
+suspension: null
+deferred_requests: []

@@ -20,6 +20,12 @@ Every executable **planned** spec must have one approval record that defines:
 
 Approval promotes the prepared spec to `approved` and authorizes all automatic actions below for that spec only. A materially expanded scope requires a new approval.
 
+## Plan compliance
+
+While an approved plan is active, Atena must compare each new user request with the persisted plan cursor before execution. `IN_PLAN` work remains authorized by the approved plan. `PLAN_DEVIATION` pauses at the Plan Deviation Gate, and `PLAN_CHANGE_REQUEST` pauses for impact analysis and revised-plan approval.
+
+Choosing “do now and return” authorizes only the sequencing of the user-requested parallel work. It does not waive any always-approve action or convert a new material architecture decision into in-scope work.
+
 ## Direct Execution authority
 
 A user's direct implementation instruction authorizes ordinary, reversible local work that is clearly within the requested outcome. It does not constitute approval for an always-approve action merely because such an action becomes technically convenient during implementation.
@@ -57,6 +63,8 @@ Pause and explain the evidence when any condition applies:
 - a canonical conflict or unresolved contradiction is found;
 - a security, privacy, data-loss, or production-impact risk is detected;
 - a Guided ADD spec regains a `BLOCKING` gap during implementation.
+- a `PLAN_DEVIATION` has not received a user-selected route;
+- a `PLAN_CHANGE_REQUEST` would replace an approved plan before its impact is analyzed and the revision is approved.
 
 ## Always-approve actions
 
@@ -90,7 +98,7 @@ Recommend an agent only for a bounded deliverable. Recommend multi-agents only f
 
 Before reporting Guided ADD completion, Atena must:
 
-1. validate the ADD contract and relevant graph links;
+1. validate the ADD contract, active-plan state where applicable, and relevant graph links;
 2. run the plan's automated checks;
 3. compare the result with the spec and acceptance criteria;
 4. run an independent review pass for scope drift, regressions, and missing evidence;

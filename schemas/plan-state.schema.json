@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/guimariz/atena-driven-development/schemas/plan-state.schema.json",
+  "title": "Atena active plan state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "active_plan", "plan_cursor", "suspension", "deferred_requests"],
+  "properties": {
+    "version": { "const": 1 },
+    "active_plan": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "spec_id", "current_step", "total_steps", "status"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^PLAN-[A-Z0-9-]+$" },
+            "spec_id": { "type": "string", "pattern": "^SPEC-[A-Z0-9-]+$" },
+            "current_step": { "type": "string", "pattern": "^S-[0-9]{3,}$" },
+            "total_steps": { "type": "integer", "minimum": 1 },
+            "status": { "enum": ["ACTIVE", "SUSPENDED"] }
+          }
+        }
+      ]
+    },
+    "plan_cursor": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["current", "next"],
+          "properties": {
+            "current": { "type": "string", "minLength": 1 },
+            "next": { "type": ["string", "null"] }
+          }
+        }
+      ]
+    },
+    "suspension": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["request_id", "mode", "saved_cursor"],
+          "properties": {
+            "request_id": { "type": "string", "pattern": "^DEV-[A-Z0-9-]+$" },
+            "mode": { "const": "RETURN_AFTER_EXECUTION" },
+            "saved_cursor": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["current", "next"],
+              "properties": {
+                "current": { "type": "string", "minLength": 1 },
+                "next": { "type": ["string", "null"] }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "deferred_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "request", "status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^DEV-[A-Z0-9-]+$" },
+          "request": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["PENDING", "IMPLEMENTED", "CANCELLED"] }
+        }
+      }
+    }
+  }
+}

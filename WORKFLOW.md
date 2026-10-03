@@ -22,10 +22,26 @@ A mention of the word `Atena` as content does not by itself activate Guided ADD.
 6. **Resolve gaps**: classify gaps as `BLOCKING`, `RESOLVABLE`, or `DEFERRED`; eliminate all blocking gaps.
 7. **Plan**: produce tasks, expected file/system changes, validation, evidence, limits, and recovery approach.
 8. **Approve once**: present the complete plan of flight. Approval promotes the prepared spec to `approved` and authorizes its bounded implementation.
-9. **Execute autonomously**: perform the approved scope under the selected autonomy profile; pause only for a stop condition or always-approve action.
-10. **Verify**: collect test results, observations, changed files, visual evidence where applicable, and unresolved items.
-11. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
-12. **Reconcile**: update permitted operational facts, propose material canonical changes, and regenerate derived artifacts.
+9. **Activate the plan cursor**: create or update `.atena/state/plan.yaml` with the active plan, current step, next step, and an empty suspension before implementation begins.
+10. **Execute autonomously**: perform the approved scope under the selected autonomy profile; pause only for a stop condition or always-approve action.
+11. **Verify**: collect test results, observations, changed files, visual evidence where applicable, and unresolved items.
+12. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
+13. **Reconcile**: update permitted operational facts, propose material canonical changes, regenerate derived artifacts, and clear the active plan only after its terminal result is recorded.
+
+## Active-plan request handling
+
+Before executing a new request during an active plan, classify it under the plan-coordination contract.
+
+```text
+new request
+  -> IN_PLAN              -> execute current-plan work
+  -> PLAN_DEVIATION       -> Plan Deviation Gate
+  -> PLAN_CHANGE_REQUEST  -> impact analysis and revised-plan approval
+```
+
+For route A of a deviation, save the cursor in `suspension`, mark the active plan `SUSPENDED`, perform the parallel work, restore the cursor, return the plan to `ACTIVE`, announce the return to the plan, and continue. For route B, record a `DEV-XXX` pending request and continue the current step. A deferred request is visible work, not an automatically scheduled execution.
+
+For a plan change request, preserve the prior plan and its cursor until the revised plan has been approved. Update plan state only after that approval; do not represent an unapproved replacement as active.
 
 ## Direct Execution lifecycle
 

@@ -1,3 +1,9 @@
+---
+id: "PLAN-XXX"
+spec_id: "SPEC-XXX"
+status: "draft" # draft | approved | active | completed | superseded
+---
+
 # Plan of flight — SPEC-XXX
 
 ## Plan mode
@@ -23,8 +29,10 @@ What existing project capabilities will be reused before creating new ones?
 
 ## Implementation sequence
 
-1. <step and reason>
-2. <step and reason>
+1. `S-001` — <step and reason>
+2. `S-002` — <step and reason>
+
+Active planned work records its current and next stable step in `.atena/state/plan.yaml`. A post-hoc plan is never activated as an execution plan.
 
 ## Expected changes
 

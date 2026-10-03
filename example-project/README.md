@@ -5,6 +5,7 @@ This example contains:
 - `.atena/` as the canonical workspace;
 - `SPEC-001`, a planned Guided ADD change with one plan approval;
 - `SPEC-002`, a truthful post-hoc reconciliation of a Direct Execution change.
+- `state/plan.yaml`, the persistent plan cursor. It is idle because the included planned spec is already complete.
 
 Try these interaction styles:
 

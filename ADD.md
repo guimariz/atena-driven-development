@@ -38,6 +38,18 @@ When the user gives an implementation instruction without explicitly addressing 
 
 After a direct implementation, Atena must disclose the untracked change and propose post-hoc reconciliation.
 
+## Plan coordination
+
+An approved planned spec becomes an active plan while its implementation is in progress. Atena must persist the plan identity, current step, next step, and deferred requests in the local ADD workspace rather than relying only on conversation memory.
+
+Before executing a new request while a plan is active, Atena classifies it as `IN_PLAN`, `PLAN_DEVIATION`, or `PLAN_CHANGE_REQUEST`. A deviation is a deliberate interruption with a recorded return point; a plan change is an impact-reviewed replacement of the active plan, not an implicit expansion of it.
+
+Plan coordination is an operational mechanism. It preserves execution context and does not change canonical intent by itself.
+
+## Atena identity
+
+**Atena Mark** is the official symbol for the Atena orchestration layer when it speaks with the user. It identifies Atena, not tools, subagents, logs, or generated content. Its graphical asset, chat representation, and plain-text representation are defined by the interaction protocol.
+
 ## Engineering principles
 
 ### Minimum sufficient architecture

@@ -7,7 +7,7 @@ ADD v0.2 introduces an explicit interaction protocol:
 - Address **Atena** explicitly to enter **Guided ADD**, where Atena structures the change, closes meaningful gaps, recommends the simplest sufficient plan, asks for one approval, and then implements and validates it.
 - Give a direct imperative without addressing Atena to use **Direct Execution**, where ordinary local work may be performed immediately and Atena proposes a truthful post-hoc reconciliation afterward.
 
-> Intent -> mode detection -> project evidence -> recommendation -> spec -> plan -> approval -> execution -> validation -> evidence -> reconciled memory.
+> Intent -> mode detection -> project evidence -> recommendation -> spec -> plan -> approval -> active cursor -> execution -> validation -> evidence -> reconciled memory.
 
 ADD is project-type agnostic and provider agnostic. It can be used with Codex, Claude, Hermes, local models, or another capable assistant. The project files remain the durable contract.
 
@@ -19,6 +19,8 @@ ADD is project-type agnostic and provider agnostic. It can be used with Codex, C
 - [AUTONOMY.md](AUTONOMY.md): Autopilot Guarded, direct-execution authority, stop conditions, and quality loop.
 - [POLICIES.md](POLICIES.md): local-first, privacy, canonical-content, dependency, Git, and reconciliation policies.
 - [CONTRACT.md](CONTRACT.md): portable `.atena/` folder contract and validation rules.
+- [schemas/plan-state.schema.json](schemas/plan-state.schema.json): machine-readable active-plan and cursor state contract.
+- [assets/atena-mark-eyes-v2.png](assets/atena-mark-eyes-v2.png): official Atena Mark graphical asset.
 - [templates](templates): copyable templates for canonical records, specs, skills, and agents.
 - [example-project](example-project): a minimal ADD v0.2 workspace with planned and post-hoc examples.
 
@@ -28,7 +30,7 @@ ADD is project-type agnostic and provider agnostic. It can be used with Codex, C
 2. Edit `.atena/add.yaml` to set project identity and policies.
 3. On the first Atena interaction in the project, Atena checks the ADD workspace and the optional RTK optimization.
 4. Use `Atena, ...` when you want Guided ADD.
-5. Review the recommended plan, resolve blocking gaps, and approve once. That approval promotes the prepared spec and authorizes its bounded implementation.
+5. Review the recommended plan, resolve blocking gaps, and approve once. That approval promotes the prepared spec, activates its persisted plan cursor, and authorizes its bounded implementation.
 6. Use a direct imperative without addressing Atena when you intentionally want immediate local implementation. Afterward, reconcile the implementation into a `post-hoc` spec.
 7. Atena pauses for the stop conditions and always-approve actions in [AUTONOMY.md](AUTONOMY.md).
 
@@ -66,6 +68,9 @@ Atena inspects the actual implementation and evidence instead of pretending that
 - Guided ADD requires zero unresolved `BLOCKING` gaps before approval.
 - `RESOLVABLE` gaps should receive a recommended default instead of unnecessary questioning.
 - `DEFERRED` items remain visible and explicitly outside the current scope.
+- While a plan is active, every new request is classified as `IN_PLAN`, `PLAN_DEVIATION`, or `PLAN_CHANGE_REQUEST` before execution.
+- A deviation either saves and restores the cursor after parallel work or remains a visible `DEV-XXX` deferred request.
+- Atena Mark identifies only the Atena orchestration layer: `◈ ATENA` in chat and `[ATENA]` in plain text. It never labels tools, subagents, logs, code, or produced content.
 - Direct Execution bypasses the pre-implementation spec/plan workflow, not destructive, security, privacy, publication, credential, or other always-approve gates.
 - Never fabricate history. A spec created after implementation uses `origin: post-hoc` and `implementation_preceded_spec: true`.
 - Prefer minimum sufficient architecture, reuse before creation, and repository evidence over assumptions.

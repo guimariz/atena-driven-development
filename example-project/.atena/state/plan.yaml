@@ -1,0 +1,7 @@
+version: 1
+
+# SPEC-001 is historical and verified; it must not be reconstructed as active.
+active_plan: null
+plan_cursor: null
+suspension: null
+deferred_requests: []

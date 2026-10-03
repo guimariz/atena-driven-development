@@ -32,6 +32,10 @@ After a planned change is approved, Atena may update canonical operational facts
 
 It must not silently change canonical intent: vision, product rules, requirements, material architecture, security decisions, or established lore. Those changes require a visible proposal and explicit approval.
 
+## Plan state
+
+`.atena/state/plan.yaml` is local operational state for an active plan, cursor, suspension, and deferred requests. It is persistent enough to recover from a conversation interruption, but it is not a canonical record, approval record, or substitute for evidence. State transitions must preserve the prior plan until a user-approved revision replaces it.
+
 ## Truthful post-hoc records
 
 Post-hoc reconciliation must derive from observable implementation and evidence. It must not imply that a plan, decision, review, or approval happened before implementation when it did not.
