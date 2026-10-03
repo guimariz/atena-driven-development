@@ -6,20 +6,30 @@
   "additionalProperties": false,
   "required": ["version", "active_plan", "plan_cursor", "suspension", "deferred_requests"],
   "properties": {
-    "version": { "const": 1 },
+    "version": { "const": 2 },
     "active_plan": {
       "oneOf": [
         { "type": "null" },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["id", "spec_id", "current_step", "total_steps", "status"],
+          "required": ["id", "spec_id", "current_step", "total_steps", "status", "approval"],
           "properties": {
             "id": { "type": "string", "pattern": "^PLAN-[A-Z0-9-]+$" },
             "spec_id": { "type": "string", "pattern": "^SPEC-[A-Z0-9-]+$" },
             "current_step": { "type": "string", "pattern": "^S-[0-9]{3,}$" },
             "total_steps": { "type": "integer", "minimum": 1 },
-            "status": { "enum": ["ACTIVE", "SUSPENDED"] }
+            "status": { "enum": ["ACTIVE", "SUSPENDED"] },
+            "approval": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["mode", "checkpoint", "status"],
+              "properties": {
+                "mode": { "enum": ["per-plan", "per-batch", "per-step"] },
+                "checkpoint": { "type": "string", "pattern": "^(PLAN|B-[0-9]{3,}|S-[0-9]{3,})$" },
+                "status": { "enum": ["PENDING", "APPROVED"] }
+              }
+            }
           }
         }
       ]

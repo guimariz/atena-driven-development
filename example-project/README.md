@@ -3,7 +3,8 @@
 This example contains:
 
 - `.atena/` as the canonical workspace;
-- `SPEC-001`, a planned Guided ADD change with one plan approval;
+- a root `AGENTS.md` should be created from `templates/AGENTS.md` when adopting this example in a project;
+- `SPEC-001`, a historical planned Guided ADD change with one plan approval;
 - `SPEC-002`, a truthful post-hoc reconciliation of a Direct Execution change.
 - `state/plan.yaml`, the persistent plan cursor. It is idle because the included planned spec is already complete.
 

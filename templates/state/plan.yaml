@@ -1,6 +1,7 @@
-version: 1
+version: 2
 
-# No plan is active in a newly initialized workspace.
+# No plan is active in a newly initialized workspace. An active plan also
+# records its selected approval mode and current PLAN, B-XXX, or S-XXX checkpoint.
 active_plan: null
 plan_cursor: null
 suspension: null

@@ -22,6 +22,10 @@
 
 `state/plan.yaml` is persistent local operational state. It is required even when no plan is active, in which case its plan, cursor, and suspension values are `null` and its deferred-request list is empty. It is not a canonical-vault record and must not be used to rewrite intent or approval history.
 
+## Agent activation
+
+The portable workspace defines ADD state and records; it does not by itself inject behavior into an AI client. A project that wants Atena behavior must load project instructions through its root `AGENTS.md`. [`templates/AGENTS.md`](templates/AGENTS.md) is the copyable default: it activates Guided ADD, plan compliance, per-plan approval selection, and Atena Voice without replacing project-specific rules.
+
 ## `add.yaml` fields
 
 ```yaml
@@ -62,7 +66,7 @@ policies:
 
 autonomy:
   profile: "guarded-autopilot"
-  execution_approval: "per-spec"
+  approval_selection: "required-per-plan"
   report_mode: "exceptions-and-final"
   max_retries: 3
 
@@ -147,11 +151,19 @@ A validator should reject a `ready-for-approval` planned spec with unresolved `B
 
 ## Planned approval contract
 
-A planned `plan.md` contains one plan-of-flight approval record. Approval:
+Every planned `plan.md` must record an `approval.mode` before it becomes executable. The mode is selected by the user for that plan and is one of:
+
+- `per-plan`: one approval checkpoint for the complete bounded plan;
+- `per-batch`: one approval checkpoint before each stable `B-XXX` batch;
+- `per-step`: one approval checkpoint before each stable `S-XXX` step.
+
+`unconfigured` is valid only while the plan is being drafted. A validator must reject a planned spec as `ready-for-approval` or executable while the mode is `unconfigured`.
+
+Each satisfied checkpoint records its scope, approver, time, and plan revision. Approval:
 
 1. confirms the bounded outcome and scope;
 2. promotes the prepared spec to `approved`;
-3. authorizes ordinary in-scope local implementation under the selected autonomy profile;
+3. authorizes ordinary in-scope local implementation only through the selected approval checkpoint(s);
 4. does not authorize always-approve actions unless they are separately and explicitly approved.
 
 ## Plan coordination contract
@@ -159,13 +171,17 @@ A planned `plan.md` contains one plan-of-flight approval record. Approval:
 Every planned `plan.md` activated under this contract has a stable `PLAN-XXX` identifier and stable execution-step identifiers such as `S-001`. While implementation is active, `.atena/state/plan.yaml` is the authoritative operational return point. Its required shape is:
 
 ```yaml
-version: 1
+version: 2
 active_plan:
   id: "PLAN-001"
   spec_id: "SPEC-001"
   current_step: "S-004"
   total_steps: 8
   status: "ACTIVE"
+  approval:
+    mode: "per-batch"
+    checkpoint: "B-002"
+    status: "APPROVED"
 plan_cursor:
   current: "Validate the contract"
   next: "Record evidence"
@@ -177,6 +193,8 @@ The normative machine-readable shape is [`schemas/plan-state.schema.json`](schem
 
 - an active plan without a matching active cursor;
 - a cursor step not present in the referenced plan;
+- an active plan without a valid approval mode and checkpoint state;
+- work continuing beyond a `PENDING` approval checkpoint;
 - a suspension without an active plan and saved cursor;
 - duplicate deferred-request IDs;
 - an unknown plan, spec, request, or step reference.
@@ -202,6 +220,7 @@ For `origin: post-hoc`, `plan.md` is a reconstructed implementation map. It must
 - Operational canonical fields may be updated automatically only when caused directly by an authorized change and recorded in evidence.
 - Every planned spec includes objective, scope, non-goals, acceptance criteria, impact, gap state, and validation.
 - Every executable planned spec has a plan-of-flight approval, evidence, and reconciliation result.
+- Every executable planned spec records an explicit per-plan, per-batch, or per-step approval mode.
 - Every active planned spec has valid state in `.atena/state/plan.yaml`.
 - A `PLAN_DEVIATION` has either a recorded suspension or a pending deferred request before execution continues.
 - A planned spec cannot be approved with unresolved `BLOCKING` gaps.

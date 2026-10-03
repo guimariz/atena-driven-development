@@ -20,13 +20,14 @@ A mention of the word `Atena` as content does not by itself activate Guided ADD.
 4. **Recommend**: propose the minimum sufficient architecture/process, prefer reuse, explain material trade-offs, and provide defaults.
 5. **Specify**: prepare or update the bounded spec, non-goals, decisions, impact, and acceptance criteria.
 6. **Resolve gaps**: classify gaps as `BLOCKING`, `RESOLVABLE`, or `DEFERRED`; eliminate all blocking gaps.
-7. **Plan**: produce tasks, expected file/system changes, validation, evidence, limits, and recovery approach.
-8. **Approve once**: present the complete plan of flight. Approval promotes the prepared spec to `approved` and authorizes its bounded implementation.
-9. **Activate the plan cursor**: create or update `.atena/state/plan.yaml` with the active plan, current step, next step, and an empty suspension before implementation begins.
-10. **Execute autonomously**: perform the approved scope under the selected autonomy profile; pause only for a stop condition or always-approve action.
-11. **Verify**: collect test results, observations, changed files, visual evidence where applicable, and unresolved items.
-12. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
-13. **Reconcile**: update permitted operational facts, propose material canonical changes, regenerate derived artifacts, and clear the active plan only after its terminal result is recorded.
+7. **Plan**: produce tasks, expected file/system changes, validation, evidence, limits, recovery approach, and stable batches where relevant.
+8. **Select approval mode**: ask the user to choose `per-plan`, `per-batch`, or `per-step`; a plan remains non-executable while the selection is `unconfigured`.
+9. **Approve the checkpoint**: present the complete plan of flight or the next defined batch/step according to the selected mode. Record the approved checkpoint and plan revision.
+10. **Activate the plan cursor**: create or update `.atena/state/plan.yaml` with the active plan, approval checkpoint, current step, next step, and an empty suspension before implementation begins.
+11. **Execute autonomously**: perform only work inside the approved checkpoint under the selected autonomy profile; pause for the next checkpoint, a stop condition, or an always-approve action.
+12. **Verify**: collect test results, observations, changed files, visual evidence where applicable, and unresolved items.
+13. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
+14. **Reconcile**: update permitted operational facts, propose material canonical changes, regenerate derived artifacts, and clear the active plan only after its terminal result is recorded.
 
 ## Active-plan request handling
 
@@ -64,12 +65,14 @@ BLOCKING == 0
 
 `RESOLVABLE` items must have a recorded default/decision. `DEFERRED` items must be visible, intentional, and outside the current acceptance criteria.
 
+A planned spec is also not ready until its approval mode is explicit. `per-batch` plans define every `B-XXX` batch before execution; `per-step` plans use the stable `S-XXX` identifiers already present in the plan. A pending checkpoint blocks ordinary implementation even when the broader plan is approved.
+
 ## Required gates
 
 | Gate | Required before | The user sees |
 | --- | --- | --- |
 | Initial canon / material intent change | Establishing or changing vision, business rules, architecture, security intent, or established lore | diff, evidence, relations, contradictions, impact |
-| Plan of flight | Guided ADD bounded local execution | objective, decisions, scope, non-goals, acceptance, affected systems, tests, limits, recovery |
+| Plan approval checkpoint | Guided ADD bounded local execution | selected mode; relevant plan, batch, or step scope; acceptance, affected systems, tests, limits, recovery |
 | Sensitive context | Sending sensitive or restricted project material to a remote model | exact context, recipient/provider, purpose, sensitivity |
 | Destructive action | Delete, overwrite, reset, material migration, irreversible operation | targets, consequence, backup/recovery |
 | Security-sensitive action | Authentication/authorization changes or weakening controls | behavior change, threat/impact summary, recovery |

@@ -46,6 +46,12 @@ Before executing a new request while a plan is active, Atena classifies it as `I
 
 Plan coordination is an operational mechanism. It preserves execution context and does not change canonical intent by itself.
 
+### Approval granularity
+
+Before a planned spec becomes executable, the user selects its approval granularity: `per-plan`, `per-batch`, or `per-step`. The selection belongs to that plan, is persisted with its approval checkpoints, and controls only ordinary in-scope execution. It never weakens mandatory safety, privacy, dependency, publication, or destructive-action gates.
+
+`per-plan` is the recommended default because it keeps bounded work autonomous after one complete review. `per-batch` and `per-step` are available when the user wants tighter control for the same bounded outcome.
+
 ## Atena identity
 
 **Atena Mark** is the official symbol for the Atena orchestration layer when it speaks with the user. It identifies Atena, not tools, subagents, logs, or generated content. Its graphical asset, chat representation, and plain-text representation are defined by the interaction protocol.

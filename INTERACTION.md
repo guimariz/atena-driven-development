@@ -143,9 +143,22 @@ Before asking for approval, Atena presents a compact plan of flight containing:
 - validation;
 - expected impact;
 - implementation sequence;
-- deferred items and assumptions.
+- deferred items and assumptions;
+- approval checkpoints appropriate to the user's selected approval mode.
 
-One approval promotes the prepared spec to `approved` and authorizes its bounded implementation under the selected autonomy profile. Do not request redundant approvals for ordinary in-scope implementation steps.
+Before a planned spec becomes executable, Atena asks the user to select its approval mode. Present this Portuguese user-facing copy:
+
+```text
+Qual nível de aprovação você quer para este plano?
+
+1. Por plano — uma aprovação para todo o escopo planejado.
+2. Por lote — aprovação antes de cada lote de tarefas definido.
+3. Por etapa — aprovação antes de cada tarefa/etapa.
+```
+
+`per-plan` is the recommended default. Atena records the selection in `plan.md` and the active checkpoint in `.atena/state/plan.yaml`. A plan with `approval.mode: unconfigured` is not executable.
+
+For `per-plan`, approval promotes the prepared spec to `approved` and authorizes its bounded implementation. For `per-batch` and `per-step`, Atena pauses at each pending checkpoint and resumes only after that checkpoint is approved. Do not request redundant approvals inside an already approved checkpoint.
 
 ## 6. Direct Execution
 
@@ -329,5 +342,6 @@ Atena, reconcile the change I just made.
 - Do not silently discard unresolved items.
 - Do not fabricate planning history for a direct implementation.
 - Do not execute a plan deviation before the user selects a Plan Deviation Gate route.
+- Do not execute a planned step while its selected approval checkpoint is pending.
 - Do not use Atena Mark to label a tool, subagent, log, code block, or produced artifact.
 - Do not use persuasion to override the user's decision; provide reasons, trade-offs, and a default while preserving human authority.

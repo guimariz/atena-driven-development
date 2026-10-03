@@ -2,6 +2,8 @@
 id: "PLAN-XXX"
 spec_id: "SPEC-XXX"
 status: "draft" # draft | approved | active | completed | superseded
+approval:
+  mode: "unconfigured" # unconfigured | per-plan | per-batch | per-step
 ---
 
 # Plan of flight — SPEC-XXX
@@ -34,6 +36,20 @@ What existing project capabilities will be reused before creating new ones?
 
 Active planned work records its current and next stable step in `.atena/state/plan.yaml`. A post-hoc plan is never activated as an execution plan.
 
+## Approval checkpoints
+
+Select one mode before the plan becomes executable:
+
+- `per-plan` — one `PLAN` checkpoint covers the complete approved plan.
+- `per-batch` — define stable batches before execution:
+  - `B-001` — <tasks covered by this batch>
+- `per-step` — each stable `S-XXX` step is its own checkpoint.
+
+```yaml
+mode: "unconfigured"
+checkpoints: []
+```
+
 ## Expected changes
 
 - `<path>` — <change>
@@ -61,12 +77,15 @@ How can the change be reverted or recovered safely?
 For planned specs only:
 
 ```yaml
-status: pending
-approved_at: null
-approved_by: null
-scope_revision: 1
+mode: "unconfigured"
+checkpoints:
+  - id: "PLAN" # PLAN | B-XXX | S-XXX
+    status: pending
+    approved_at: null
+    approved_by: null
+    scope_revision: 1
 ```
 
-When the user approves the complete plan of flight, update this record and promote the spec to `approved`.
+When the user approves a checkpoint, update its record. Promote the spec to `approved` after the first applicable checkpoint is approved; pause again before every remaining `per-batch` or `per-step` checkpoint.
 
 For post-hoc specs, write `Not applicable — implementation preceded specification.`

@@ -12,6 +12,12 @@
 - Regressions found: <...>
 - Exceptions accepted by user: <...>
 
+## Approval evidence
+
+- Approval mode: `per-plan | per-batch | per-step`
+- Checkpoints approved: <PLAN, B-XXX, or S-XXX records>
+- Pending checkpoints: <none, or IDs>
+
 ## Reconciliation
 
 - Canonical records updated: <IDs or none>

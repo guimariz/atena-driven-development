@@ -35,7 +35,7 @@ policies:
 
 autonomy:
   profile: "guarded-autopilot"
-  execution_approval: "per-spec"
+  approval_selection: "required-per-plan"
   report_mode: "exceptions-and-final"
   max_retries: 3
 

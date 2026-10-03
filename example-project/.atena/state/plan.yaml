@@ -1,4 +1,4 @@
-version: 1
+version: 2
 
 # SPEC-001 is historical and verified; it must not be reconstructed as active.
 active_plan: null

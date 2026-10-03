@@ -36,6 +36,8 @@ It must not silently change canonical intent: vision, product rules, requirement
 
 `.atena/state/plan.yaml` is local operational state for an active plan, cursor, suspension, and deferred requests. It is persistent enough to recover from a conversation interruption, but it is not a canonical record, approval record, or substitute for evidence. State transitions must preserve the prior plan until a user-approved revision replaces it.
 
+Every plan independently selects its approval mode. A project may require that selection through `autonomy.approval_selection: required-per-plan`, but it must not silently inherit a prior plan's mode. The persisted active-plan checkpoint is operational state; the user approval that satisfies it remains recorded in the plan and evidence.
+
 ## Truthful post-hoc records
 
 Post-hoc reconciliation must derive from observable implementation and evidence. It must not imply that a plan, decision, review, or approval happened before implementation when it did not.

@@ -8,7 +8,7 @@ Direct Execution is a separate fast path. A direct imperative can authorize ordi
 
 ## Plan of flight
 
-Every executable **planned** spec must have one approval record that defines:
+Every executable **planned** spec must have an explicit approval mode and checkpoint record that defines:
 
 - intended outcome and acceptance criteria;
 - allowed files, directories, and systems;
@@ -18,7 +18,7 @@ Every executable **planned** spec must have one approval record that defines:
 - rollback/recovery approach;
 - identified always-approve actions, if any.
 
-Approval promotes the prepared spec to `approved` and authorizes all automatic actions below for that spec only. A materially expanded scope requires a new approval.
+The user selects one mode for each plan: `per-plan`, `per-batch`, or `per-step`. Approval authorizes automatic actions below only for the approved checkpoint. `per-plan` promotes the prepared spec to `approved`; `per-batch` and `per-step` require the next checkpoint before additional work. A materially expanded scope requires a new approval.
 
 ## Plan compliance
 
@@ -65,6 +65,7 @@ Pause and explain the evidence when any condition applies:
 - a Guided ADD spec regains a `BLOCKING` gap during implementation.
 - a `PLAN_DEVIATION` has not received a user-selected route;
 - a `PLAN_CHANGE_REQUEST` would replace an approved plan before its impact is analyzed and the revision is approved.
+- the active plan has reached a pending per-batch or per-step approval checkpoint.
 
 ## Always-approve actions
 
