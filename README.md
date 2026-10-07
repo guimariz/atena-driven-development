@@ -19,9 +19,11 @@ ADD is project-type agnostic and provider agnostic. It can be used with Codex, C
 - [AUTONOMY.md](AUTONOMY.md): Autopilot Guarded, direct-execution authority, stop conditions, and quality loop.
 - [POLICIES.md](POLICIES.md): local-first, privacy, canonical-content, dependency, Git, and reconciliation policies.
 - [CONTRACT.md](CONTRACT.md): portable `.atena/` folder contract and validation rules.
+- [GAMES.md](GAMES.md): optional game creation guidance, including adaptive discovery, a visual bible before engine selection, prototype readiness, and explicit playtests.
 - [schemas/plan-state.schema.json](schemas/plan-state.schema.json): machine-readable active-plan and cursor state contract.
 - [assets/atena-mark-eyes-v2.png](assets/atena-mark-eyes-v2.png): official Atena Mark graphical asset.
 - [templates](templates): copyable templates for canonical records, specs, skills, and agents.
+- [templates/game](templates/game): optional vision, design, visual bible, prototype readiness, and playtest templates.
 - [example-project](example-project): a minimal ADD v0.2 workspace with planned and post-hoc examples.
 
 ## Quick start
@@ -44,6 +46,16 @@ Atena, add Google authentication to the application.
 ```
 
 Atena should inspect the project, explain the relevant decisions, recommend defaults, identify gaps, prepare the spec and implementation plan, and request approval only when the plan is ready.
+
+### Create a game with guidance
+
+```text
+Atena, quero fazer um jogo.
+```
+
+Atena offers the [game creation path](GAMES.md) and confirms whether the user wants it. Discovery adapts to the conversation: vision, design, scope, an initial visual bible, and prototype/test objectives precede engine and technology recommendations. Before the prototype, Atena always explains the main pending items; before every playtest, it explains what to test.
+
+Use the optional [game templates](templates/game) as working drafts. When adopting ADD in a game project, the game section in `templates/AGENTS.md` provides the essential behavior; copy the detailed guide and relevant templates if useful, adjusting links for their destination. Confirmation of the path does not replace normal implementation approval.
 
 ### Direct Execution
 

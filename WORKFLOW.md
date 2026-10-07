@@ -29,6 +29,16 @@ A mention of the word `Atena` as content does not by itself activate Guided ADD.
 13. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
 14. **Reconcile**: update permitted operational facts, propose material canonical changes, regenerate derived artifacts, and clear the active plan only after its terminal result is recorded.
 
+## Optional game creation path
+
+For a confirmed game creation path, follow [GAMES.md](GAMES.md) within the existing Guided ADD lifecycle. Interview adaptively, establish vision/design and feasible scope, build the initial visual bible, and define the first prototype and playtest objectives. Recommend engine, tools, dependencies, and architecture last in the initial definition, using all relevant decisions as evidence.
+
+Always present prototype readiness and its main pending items before implementation, refreshing the report after technical recommendations. Resolve all BLOCKING gaps and honor the selected approval checkpoint; state explicitly when no main pending items remain. Keep intentionally deferred details visible without treating them as blockers for unrelated hypotheses.
+
+For each milestone, define what every playtest should test before it starts and record actual results afterward. Separate technical verification from player feedback. Human feedback is required to demonstrate subjective acceptance criteria; a pending playtest blocks advancement when required for milestone acceptance or the next decision. Preserve other pending feedback and document any explicitly accepted exception.
+
+Vision, mechanics, lore, and visual direction stay in drafts until explicit approval identifies the content/revision promoted to canon. Use ordinary ADD specs and evidence for prototype, vertical slice when useful, content, polish, and release milestones.
+
 ## Active-plan request handling
 
 Before executing a new request during an active plan, classify it under the plan-coordination contract.

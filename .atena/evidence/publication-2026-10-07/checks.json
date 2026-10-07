@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "timezone": "America/Sao_Paulo",
+  "status": "pass",
+  "required_contract_paths": 8,
+  "markdown_documents": 25,
+  "local_markdown_links": 74,
+  "unique_root_record_ids": [
+    "PLAN-001",
+    "SPEC-001",
+    "PLAN-002",
+    "SPEC-002",
+    "DEC-001"
+  ],
+  "spec_companions": "present",
+  "plan_state_schema": "pass",
+  "plan_state": "idle",
+  "utf8": "pass",
+  "duplicate_headings": "none",
+  "credential_pattern_scan": "none",
+  "limitations": [
+    "Restricted parser supports only the YAML mapping/scalar syntax present in add.yaml and plan.yaml; unsupported syntax fails.",
+    "Schema evaluator checks every keyword in the current plan-state schema and rejects unsupported keywords.",
+    "Local Markdown destination existence checked; fragment anchors and external URLs not checked.",
+    "Credential-pattern scan does not prove absence of every possible secret.",
+    "Documentary validation only; no game or model runtime evaluation."
+  ]
+}
