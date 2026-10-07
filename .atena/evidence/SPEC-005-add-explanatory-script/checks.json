@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-07",
+  "scope": "preparation-only",
+  "filesChecked": 6,
+  "contractPaths": 8,
+  "localLinksChecked": 56,
+  "brokenLinks": [],
+  "proposedBlocks": 14,
+  "state": {
+    "valid": true,
+    "executionReady": false,
+    "state": "idle"
+  },
+  "approvalMode": "unconfigured",
+  "executionAuthorized": false,
+  "canonicalChanges": false,
+  "finalAcceptance": "pending",
+  "validationAttempts": 2,
+  "limits": [
+    "Documentary preparation only",
+    "No audience test",
+    "No runtime or model behavior validation"
+  ]
+}

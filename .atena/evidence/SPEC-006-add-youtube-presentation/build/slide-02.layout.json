@@ -1,0 +1,810 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/5dymnb",
+    "id": "5dymnb",
+    "slide": 2,
+    "layoutId": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F7F6F2",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/re1s3it0",
+      "id": "1",
+      "name": "title-2",
+      "bbox": [
+        72,
+        44,
+        1110,
+        82
+      ],
+      "geometry": "rect",
+      "text": "Do pedido à memória do projeto",
+      "textPreview": "Do pedido à memória do projeto",
+      "resolvedFontSize": 42,
+      "resolvedTextStyle": {
+        "fontSize": 42,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Do pedido à memória do projeto"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Do pedido à memória do projeto",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "typeface": "Arial",
+            "color": "#14263C",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Do pedido à memória do projeto",
+              "fontSize": 42,
+              "typeface": "Arial",
+              "color": "#14263C",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sfa9wnal",
+      "id": "2",
+      "name": "page-2",
+      "bbox": [
+        1165,
+        658,
+        45,
+        30
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Arial",
+        "color": "#526273",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Arial",
+            "color": "#526273"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 17,
+              "typeface": "Arial",
+              "color": "#526273"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tgja5sb6",
+      "id": "3",
+      "name": "stage-0",
+      "bbox": [
+        72,
+        245,
+        260,
+        54
+      ],
+      "geometry": "rect",
+      "text": "Pedido",
+      "textPreview": "Pedido",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Arial",
+        "color": "#B67545",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pedido"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pedido",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Arial",
+            "color": "#B67545",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pedido",
+              "fontSize": 32,
+              "typeface": "Arial",
+              "color": "#B67545",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ip8rqdsj",
+      "id": "4",
+      "name": "stage-detail-0",
+      "bbox": [
+        72,
+        315,
+        260,
+        72
+      ],
+      "geometry": "rect",
+      "text": "Resumo de status",
+      "textPreview": "Resumo de status",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Resumo de status"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Resumo de status",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Resumo de status",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jahszyt4",
+      "id": "5",
+      "bbox": [
+        311,
+        282,
+        48,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#B8D7D3",
+      "lineWidth": 5
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kbq9s3ap",
+      "id": "6",
+      "name": "stage-1",
+      "bbox": [
+        372,
+        245,
+        260,
+        54
+      ],
+      "geometry": "rect",
+      "text": "Mudança",
+      "textPreview": "Mudança",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Arial",
+        "color": "#24797B",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Mudança"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Mudança",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Arial",
+            "color": "#24797B",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Mudança",
+              "fontSize": 32,
+              "typeface": "Arial",
+              "color": "#24797B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5cza18bu",
+      "id": "7",
+      "name": "stage-detail-1",
+      "bbox": [
+        372,
+        315,
+        260,
+        72
+      ],
+      "geometry": "rect",
+      "text": "Escopo delimitado",
+      "textPreview": "Escopo delimitado",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Escopo delimitado"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Escopo delimitado",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Escopo delimitado",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/alormtc7",
+      "id": "8",
+      "bbox": [
+        611,
+        282,
+        48,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#B8D7D3",
+      "lineWidth": 5
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmhsvyts",
+      "id": "9",
+      "name": "stage-2",
+      "bbox": [
+        672,
+        245,
+        260,
+        54
+      ],
+      "geometry": "rect",
+      "text": "Evidência",
+      "textPreview": "Evidência",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Arial",
+        "color": "#24797B",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Evidência"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Evidência",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Arial",
+            "color": "#24797B",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Evidência",
+              "fontSize": 32,
+              "typeface": "Arial",
+              "color": "#24797B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rq9wju94",
+      "id": "10",
+      "name": "stage-detail-2",
+      "bbox": [
+        672,
+        315,
+        260,
+        72
+      ],
+      "geometry": "rect",
+      "text": "Critérios conferidos",
+      "textPreview": "Critérios conferidos",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Critérios conferidos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Critérios conferidos",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Critérios conferidos",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qp0vap8j",
+      "id": "11",
+      "bbox": [
+        911,
+        282,
+        48,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#B8D7D3",
+      "lineWidth": 5
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsrelkru",
+      "id": "12",
+      "name": "stage-3",
+      "bbox": [
+        972,
+        245,
+        260,
+        54
+      ],
+      "geometry": "rect",
+      "text": "Memória",
+      "textPreview": "Memória",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "fontSize": 32,
+        "typeface": "Arial",
+        "color": "#24797B",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Memória"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Memória",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Arial",
+            "color": "#24797B",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Memória",
+              "fontSize": 32,
+              "typeface": "Arial",
+              "color": "#24797B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cridcfq9",
+      "id": "13",
+      "name": "stage-detail-3",
+      "bbox": [
+        972,
+        315,
+        260,
+        72
+      ],
+      "geometry": "rect",
+      "text": "Próxima decisão",
+      "textPreview": "Próxima decisão",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Próxima decisão"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Próxima decisão",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Próxima decisão",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ze9wnu90",
+      "id": "14",
+      "name": "text-72-516",
+      "bbox": [
+        72,
+        516,
+        1070,
+        80
+      ],
+      "geometry": "rect",
+      "text": "Arquivos locais preservam o contexto para a próxima decisão.",
+      "textPreview": "Arquivos locais preservam o contexto para a próxima decisão.",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#526273",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Arquivos locais preservam o contexto para a próxima decisão."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Arquivos locais preservam o contexto para a próxima decisão.",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#526273"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Arquivos locais preservam o contexto para a próxima decisão.",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#526273"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

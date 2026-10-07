@@ -1,0 +1,254 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/70cty0",
+    "id": "70cty0",
+    "slide": 1,
+    "layoutId": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#14263C",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lk3idojq",
+      "id": "1",
+      "name": "cover-title",
+      "bbox": [
+        78,
+        172,
+        1060,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Atena e ADD",
+      "textPreview": "Atena e ADD",
+      "resolvedFontSize": 70,
+      "resolvedTextStyle": {
+        "fontSize": 70,
+        "typeface": "Arial",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Atena e ADD"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Atena e ADD",
+          "resolvedTextStyle": {
+            "fontSize": 70,
+            "typeface": "Arial",
+            "color": "#FFFFFF",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Atena e ADD",
+              "fontSize": 70,
+              "typeface": "Arial",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yhsz2tkf",
+      "id": "2",
+      "name": "cover-subtitle",
+      "bbox": [
+        82,
+        288,
+        1030,
+        80
+      ],
+      "geometry": "rect",
+      "text": "Como um pedido vira trabalho verificável",
+      "textPreview": "Como um pedido vira trabalho verificável",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "Arial",
+        "color": "#D9E5E5",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Como um pedido vira trabalho verificável"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Como um pedido vira trabalho verificável",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "typeface": "Arial",
+            "color": "#D9E5E5"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Como um pedido vira trabalho verificável",
+              "fontSize": 34,
+              "typeface": "Arial",
+              "color": "#D9E5E5"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zi10by10",
+      "id": "3",
+      "name": "text-82-590",
+      "bbox": [
+        82,
+        590,
+        900,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Um exemplo do pedido à evidência",
+      "textPreview": "Um exemplo do pedido à evidência",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#C1D2D2",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Um exemplo do pedido à evidência"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Um exemplo do pedido à evidência",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#C1D2D2"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Um exemplo do pedido à evidência",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#C1D2D2"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,756 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/uh4ndw",
+    "id": "uh4ndw",
+    "slide": 5,
+    "layoutId": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F7F6F2",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial",
+      "Consolas"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "3f0743d0-e142-485c-9d1c-231fd3ef411f",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "7fe50452-1c85-4d44-a597-983d09473fdd",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gvu5wfu5",
+      "id": "1",
+      "name": "title-5",
+      "bbox": [
+        72,
+        44,
+        1110,
+        82
+      ],
+      "geometry": "rect",
+      "text": "Quando uma ideia vira CANON",
+      "textPreview": "Quando uma ideia vira CANON",
+      "resolvedFontSize": 42,
+      "resolvedTextStyle": {
+        "fontSize": 42,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Quando uma ideia vira CANON"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Quando uma ideia vira CANON",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "typeface": "Arial",
+            "color": "#14263C",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Quando uma ideia vira CANON",
+              "fontSize": 42,
+              "typeface": "Arial",
+              "color": "#14263C",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vulonatk",
+      "id": "2",
+      "name": "page-5",
+      "bbox": [
+        1165,
+        658,
+        45,
+        30
+      ],
+      "geometry": "rect",
+      "text": "05",
+      "textPreview": "05",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Arial",
+        "color": "#526273",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "05"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "05",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Arial",
+            "color": "#526273"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "05",
+              "fontSize": 17,
+              "typeface": "Arial",
+              "color": "#526273"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/utcnu5cz",
+      "id": "3",
+      "name": "text-76-226",
+      "bbox": [
+        76,
+        226,
+        360,
+        57
+      ],
+      "geometry": "rect",
+      "text": "DRAFT",
+      "textPreview": "DRAFT",
+      "resolvedFontSize": 42,
+      "resolvedTextStyle": {
+        "fontSize": 42,
+        "typeface": "Arial",
+        "color": "#B67545",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DRAFT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DRAFT",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "typeface": "Arial",
+            "color": "#B67545",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DRAFT",
+              "fontSize": 42,
+              "typeface": "Arial",
+              "color": "#B67545",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9sj6l0be",
+      "id": "4",
+      "name": "text-76-288",
+      "bbox": [
+        76,
+        288,
+        420,
+        105
+      ],
+      "geometry": "rect",
+      "text": "Proposta ou experiência\nem revisão",
+      "textPreview": "Proposta ou experiência | em revisão",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Proposta ou experiência"
+          },
+          {
+            "index": 2,
+            "text": "em revisão"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Proposta ou experiência",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Proposta ou experiência",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "em revisão",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "em revisão",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8ra5svu9",
+      "id": "5",
+      "name": "text-76-425",
+      "bbox": [
+        76,
+        425,
+        360,
+        57
+      ],
+      "geometry": "rect",
+      "text": "CANON",
+      "textPreview": "CANON",
+      "resolvedFontSize": 42,
+      "resolvedTextStyle": {
+        "fontSize": 42,
+        "typeface": "Arial",
+        "color": "#24797B",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CANON"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CANON",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "typeface": "Arial",
+            "color": "#24797B",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CANON",
+              "fontSize": 42,
+              "typeface": "Arial",
+              "color": "#24797B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7q1ojqto",
+      "id": "6",
+      "name": "text-76-488",
+      "bbox": [
+        76,
+        488,
+        430,
+        105
+      ],
+      "geometry": "rect",
+      "text": "Intenção aprovada\ncom ID e revisão",
+      "textPreview": "Intenção aprovada | com ID e revisão",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Intenção aprovada"
+          },
+          {
+            "index": 2,
+            "text": "com ID e revisão"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Intenção aprovada",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Intenção aprovada",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "com ID e revisão",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "com ID e revisão",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mpsnq5c3",
+      "id": "7",
+      "name": "text-622-181",
+      "bbox": [
+        622,
+        181,
+        530,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Trecho real: DEC-001",
+      "textPreview": "Trecho real: DEC-001",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#526273",
+        "bold": true,
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trecho real: DEC-001"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trecho real: DEC-001",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#526273",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trecho real: DEC-001",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#526273",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj6h0bi",
+      "id": "8",
+      "name": "block-610-232",
+      "bbox": [
+        610,
+        232,
+        568,
+        319
+      ],
+      "geometry": "rect",
+      "fillColor": "#EBEFEB",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kna5ovux",
+      "id": "9",
+      "name": "canon-excerpt",
+      "bbox": [
+        636,
+        252,
+        515,
+        290
+      ],
+      "geometry": "rect",
+      "text": "id: \"DEC-001\"\ntype: \"decision\"\nstatus: \"approved\"\n\nThe project uses `.atena/`\nas its only canonical\nADD workspace.",
+      "textPreview": "id: \"DEC-001\" | type: \"decision\" | status: \"approved\" |  | The project uses `.atena/` | as its only canonical | ADD workspace.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Consolas",
+        "color": "#14263C",
+        "alignment": "left",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 7,
+        "lines": [
+          {
+            "index": 1,
+            "text": "id: \"DEC-001\""
+          },
+          {
+            "index": 2,
+            "text": "type: \"decision\""
+          },
+          {
+            "index": 3,
+            "text": "status: \"approved\""
+          },
+          {
+            "index": 4,
+            "text": ""
+          },
+          {
+            "index": 5,
+            "text": "The project uses `.atena/`"
+          },
+          {
+            "index": 6,
+            "text": "as its only canonical"
+          },
+          {
+            "index": 7,
+            "text": "ADD workspace."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "id: \"DEC-001\"",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "id: \"DEC-001\"",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "type: \"decision\"",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "type: \"decision\"",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "status: \"approved\"",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "status: \"approved\"",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "The project uses `.atena/`",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The project uses `.atena/`",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 6,
+          "text": "as its only canonical",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "as its only canonical",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 7,
+          "text": "ADD workspace.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Consolas",
+            "color": "#14263C"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ADD workspace.",
+              "fontSize": 22,
+              "typeface": "Consolas",
+              "color": "#14263C"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "scope": "SPEC-005 documentary review",
+  "documentsChecked": 9,
+  "localLinksChecked": 65,
+  "brokenLinks": [],
+  "blocks": 14,
+  "blocksWithSpokenTextAndDemoAndTransition": 14,
+  "workspacePathsChecked": 8,
+  "draftRevision": 2,
+  "specStatus": "approved",
+  "otherSpec002Status": "draft",
+  "activeState": {
+    "valid": true,
+    "executionReady": true,
+    "state": "active",
+    "step": 3,
+    "total": 3,
+    "completed": 2,
+    "remainingAfterCurrent": 0,
+    "checkpoint": "PLAN"
+  },
+  "canonicalChanges": false,
+  "limits": [
+    "No audience presentation tested",
+    "No runtime or agent behavior tested"
+  ]
+}

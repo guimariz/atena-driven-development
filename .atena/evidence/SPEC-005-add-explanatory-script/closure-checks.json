@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-07",
+  "plan": "PLAN-005",
+  "planRevision": 1,
+  "approvalMode": "per-plan",
+  "stepsCompleted": 3,
+  "stepsTotal": 3,
+  "stateValidation": {
+    "valid": true,
+    "executionReady": false,
+    "state": "idle"
+  },
+  "gitDiffCheck": "pass",
+  "canonicalChanges": false,
+  "draftContentRevision": 2,
+  "verificationScope": "documentary"
+}
