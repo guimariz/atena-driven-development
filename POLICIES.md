@@ -95,3 +95,9 @@ Agents and multi-agents follow the same principle: recommend only when bounded d
 ## Graph policy
 
 Generate graph nodes and typed links from approved IDs and relations. Validation must flag broken links, duplicate IDs, unknown relation types, and planned specs lacking acceptance criteria. Do not let an inferred graph relation become canonical automatically.
+
+## Explicit content maturity
+
+DRAFT means proposed or experimental content without canonical authority. Experimental-use approval identifies revision, bounded purpose and limits and does not promote it. CANON means explicitly approved durable intent in vault/canon, with approval evidence. A plan approval can cover a named promotion; no second approval is needed for content it already authorizes. Partial approval promotes only the identified portion.
+
+Show transitions explicitly: “DRAFT revisão N; autorizado apenas para teste X” or “CANON revisão N; conteúdo Y aprovado; implementação pendente/realizada; verificação Z”. Record who approved, content/revision, source and actual operational result. Canon placement alone, a successful test, a specialist's recommendation or conversation repetition never proves promotion. Historical drafts/research remain historical and cannot silently supersede canon.

@@ -118,3 +118,9 @@ When `atena/` exists and `.atena/` does not, treat the workspace as legacy. Pres
 ## License
 
 Use, adapt, and version this package in the project repository that adopts it.
+
+## Specialist library and visible plans
+
+[Game specialist catalog](GAME-SPECIALISTS.md) contains ten portable skills and ten bounded agent briefs, recommended by Atena for concrete project needs. [Visual readiness](templates/game/visual-readiness.md) requires bible, applicable identity and scene context, with no position prerequisite.
+
+The default reports current stage, remaining work and prepared next stage; [DRAFT/CANON transitions](POLICIES.md#explicit-content-maturity) are explicit. [Read-only semantic validation](tools/validate-add-state.cjs) complements the state schema. Repository templates require scoped local adoption; existing games/global configuration are not automatically migrated.

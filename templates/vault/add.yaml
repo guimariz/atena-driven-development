@@ -1,4 +1,4 @@
-﻿add_version: "0.2"
+add_version: "0.2"
 project:
   id: "PRJ-your-project"
   name: "Your project"
@@ -10,10 +10,10 @@ policies:
 autonomy:
   profile: "guarded-autopilot"
   approval_selection: "required-per-plan"
-  report_mode: "exceptions-and-final"
+  report_mode: "step-updates-and-final"
   max_retries: 3
 git:
-  local_commits: "automatic-on-run-branch"
+  local_commits: "automatic-on-run-branch"
   direct_local_commits: "project-policy"
   merge: "explicit-approval"
   publish: "explicit-approval"

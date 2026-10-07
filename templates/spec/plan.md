@@ -89,3 +89,31 @@ checkpoints:
 When the user approves a checkpoint, update its record. Promote the spec to `approved` after the first applicable checkpoint is approved; pause again before every remaining `per-batch` or `per-step` checkpoint.
 
 For post-hoc specs, write `Not applicable — implementation preceded specification.`
+
+## Step progress and prepared handoff
+
+Revision: 1. Report actual ordered index/total, completed steps, remaining after current, activity and checkpoint. Preserve stable IDs when revising order/scope.
+
+| Step | Objective | Inputs | Deliverable | Actions/checks | Checkpoint/status |
+| --- | --- | --- | --- | --- | --- |
+| S-001 | Define for this step | Identify ready references/revisions | Reviewable result | Actual verification | PLAN/B-XXX/S-XXX; pending or approved |
+| S-002 | Prepare before S-001 ends | Identify dependencies | Next result | Actual verification | Matching mode |
+
+At completion record result/evidence and prepare the next row before executing it. Preparation is permitted across a pending checkpoint; execution is not. On the last step reconcile and close state.
+
+For a per-batch Approval record, identify membership explicitly:
+
+```yaml
+mode: "per-batch"
+checkpoints:
+  - id: "B-001"
+    status: pending
+    approved_at: null
+    approved_by: null
+    scope_revision: 1
+    steps:
+      - "S-001"
+      - "S-002"
+```
+
+For per-step, each checkpoint ID is its own S-XXX. Approved records identify approver/time/source and the matching scope revision; neither a sample nor an active state assertion is approval evidence.

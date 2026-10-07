@@ -36,7 +36,7 @@ When a direct task encounters a mandatory gate, pause at that boundary, explain 
 
 | Level | Atena behavior |
 | --- | --- |
-| `guarded-autopilot` (default) | Executes an approved spec and reports by exception and at completion. |
+| `guarded-autopilot` (default) | Executes an approved spec and reports at step boundaries, meaningful progress changes and completion. |
 | `supervised` | Presents a checkpoint before each major Guided ADD lifecycle phase. |
 | `restricted` | Drafts and analyzes only; Guided ADD execution requires separate explicit execution approval. |
 
@@ -114,3 +114,7 @@ For an interactive or visual outcome, the spec must state its visual validation 
 ## Calibration by evaluation
 
 Maintain a small suite of representative, previously reviewed tasks where useful. Measure acceptance pass rate, regression rate, human corrections, retries, duration, and cost. Increase autonomous scope only after consistent success; reduce it after regressions.
+
+## Reporting and specialist authority
+
+Step updates are a communication obligation, not additional approval gates. Follow [progress and continuation](INTERACTION.md#visible-progress-and-prepared-continuation) and [explicit maturity](POLICIES.md#explicit-content-maturity). A specialist recommendation is an optional capability choice; current plan scope, paths, checkpoints and mandatory gates continue to govern its use. A role brief does not install a runtime or grant delegation authority.

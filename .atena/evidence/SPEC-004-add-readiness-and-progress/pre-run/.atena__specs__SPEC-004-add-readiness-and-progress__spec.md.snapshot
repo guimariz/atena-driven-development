@@ -1,0 +1,109 @@
+---
+id: "SPEC-004"
+title: "Visual readiness, visible plan progress and explicit draft-to-canon transitions"
+status: "draft"
+origin: "planned"
+implementation_preceded_spec: false
+created: "2026-10-07"
+canonical_refs:
+  - "DEC-001"
+---
+
+# Visual readiness, visible plan progress and explicit draft-to-canon transitions
+
+## Objective
+
+Make visual specialist prerequisites, step progress, continuation, approval semantics and record maturity explicit and verifiable in the portable ADD contract. Prepare transferable guidance for different game types without implementing a universal agent team.
+
+## Context and evidence
+
+- [Audit and user requirements](../../evidence/SPEC-004-add-readiness-and-progress/discovery.md).
+- [Reviewable behavior proposal](../../vault/drafts/add-readiness-and-progress-2026-10-07.md).
+- [Schema audit](../../evidence/SPEC-004-add-readiness-and-progress/schema-audit.json).
+- [Exact proposed DEC-002](../../vault/drafts/DEC-002-visible-plan-and-visual-readiness.md).
+- DEC-001 already requires the initial visual bible; existing project instruction copies may predate that addition.
+
+## Scope
+
+- Document and template the visual readiness requirement before visual specialist production/adaptation/animation/review.
+- Document minimal applicable bible/identity/position/scene references, revision/status, authority and zero relevant blockers. Structured scene context does not require a built engine scene.
+- Set step-updates-and-final as the default communication pattern in upstream configuration/examples, independently of approval mode.
+- Require accurate step/current/total/remaining/activity/checkpoint updates and a prepared next-step handoff; preserve per-plan/per-batch/per-step boundaries.
+- Explain draft, experimental draft-use approval, explicit canonical promotion and implementation/verification states, including partial promotion.
+- Add an adoption preflight and minimal root AGENTS activation for this methodology repository, preserving local instructions.
+- Add a dependency-free, read-only state validation command and meaningful fixtures for current contract semantics; do not execute work through it.
+- Add the exact proposed DEC-002 only after the approved checkpoint includes its promotion.
+- Describe other optional game-dev roles in guidance; actual skill/agent packages remain in SPEC-003 or future specs.
+
+## Non-goals
+
+- Modify other local games, global Codex configuration, credentials or permissions.
+- Diagnose a particular past chat without identifying its project/session and loaded instruction context.
+- Install/execute agents, generate/repair assets, choose engines, run a model/paid provider or a game.
+- Implement SPEC-002/SPEC-003, expand the state schema, publish/push/merge, or guarantee model adherence from structural validation.
+
+## Decisions
+
+| Decision | Choice | Rationale | Status |
+| --- | --- | --- | --- |
+| Prerequisites | Applicable bible, identity, position/presentation and structured scene context | Explicit user requirement | confirmed requirement |
+| Status clarity | Revision/content-specific draft/canon notices; promotion separate from execution approval | Explicit user requirement, existing policy | confirmed requirement |
+| Progress | Step boundary/meaningful update plus final; current/total/completed/remaining/activity and next-step handoff | Explicit user requirement | confirmed requirement |
+| Approval | Preserve all three modes; progress is not a new gate | User requests verification, not removal of modes | proposed default |
+| Scope | Upstream first; existing-game migration separately | Other projects may have active plans/local rules and are outside writable scope | proposed default |
+| State | Reuse existing fields/schema; add semantic validation | Schema shape alone misses cross-record violations | proposed default |
+| Canon | Create initial supplemental DEC-002 from the exact draft above | Record the approved process intent durably | proposed promotion |
+
+## Gaps
+
+### BLOCKING
+
+- None for the bounded upstream scope. Approval mode and checkpoint remain unconfigured/pending authorization requirements.
+
+### RESOLVABLE
+
+- Visual prerequisite detail: minimum applicable scope; explicit reasons for inapplicable fields.
+- Reference authority: canon or an explicitly authorized draft revision for an experimental scope, always labelled.
+- Progress counts: remaining-after-current is distinct from current unfinished work; derive order from plan steps, not numeric ID alone.
+- Validator parsing: dependency-free supported contract syntax, reject unsupported forms and report limitations rather than silently passing.
+
+### DEFERRED
+
+- Identify/audit/migrate the specific game that omitted discovery; session-level instruction loading remains unverified.
+- Actual specialist packages, runtime/model behavioral evaluation, additional game roles and global installation.
+- Publication and SPEC-002 implementation.
+
+## Acceptance criteria
+
+See [acceptance.md](acceptance.md): readiness, genre applicability, progress/next-step semantics, all approval modes, explicit record promotion, adoption and meaningful validator cases.
+
+## Impact
+
+### Expected files/systems
+
+Seventeen upstream files: INTERACTION.md, WORKFLOW.md, AUTONOMY.md, POLICIES.md, CONTRACT.md, GAMES.md, README.md, root AGENTS.md, templates/AGENTS.md, templates/vault/add.yaml, root .atena/add.yaml, example-project/.atena/add.yaml, templates/spec/plan.md, templates/game/visual-bible.md, templates/game/visual-readiness.md, tools/validate-add-state.cjs and tools/fixtures/add-state.json. Plus approved DEC-002 and bounded spec/evidence/state records. Preserve existing state schema and historical evidence.
+
+### Canonical impact
+
+Promote the exact DEC-002 proposal in revision 1 only after explicit checkpoint approval covers it. DEC-001 remains unchanged. Preserve the pre-approval draft and evidence; use a stable canonical ID once promoted without duplicating record IDs in active records.
+
+## Plan of flight and validation
+
+See [PLAN-004](plan.md). Validate representative new-game, missing-readiness, non-character/abstract, draft-use/canonical-promotion and three approval-mode cases. A local validator pass is not evidence that a model complied in a past chat.
+
+## Evidence and reconciliation
+
+Preparation evidence is linked above. After approval, record actual diffs, checks, remaining gaps, promoted content and status changes before clearing the cursor. Keep SPEC-003 separate and pending until its own checkpoint is approved.
+
+## Risks
+
+- Gate blocks discovery circularly: Atena prepares textual structure; a scene need not be built first.
+- Excess paperwork for small games: minimum applicable references and honest not-applicable reasons.
+- Progress mistaken for new approval: preserve authorization within existing checkpoints.
+- Draft approval mistaken for canon: distinguish bounded draft use and explicit promotion.
+- False runtime confidence: describe document/schema/semantic tests separately from model or game behavior.
+- Migration overwrites local rules: no other-project writes in this scope.
+
+## Post-hoc disclosure
+
+Not applicable. Only inspection, research, schema auditing and proposal preparation occurred before approval. Official behavior/configuration and canonical records remain unchanged.

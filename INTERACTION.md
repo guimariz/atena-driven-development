@@ -355,3 +355,11 @@ Adapt the interview to the user's experience and previous answers. Establish vis
 Before starting the prototype, always communicate the main pending items, their effect, grounded defaults, deferred work, and the next step. Say explicitly when there are no main pending items. Before every playtest, explain what it should test, how to test it, and what to observe. Technical checks validate functioning and consistency; human play and feedback evaluate feel, difficulty, and enjoyment.
 
 The path uses existing drafts, canon, specs, evidence, approvals, and plan coordination. Confirmation activates discovery; it does not authorize implementation or canonical promotion.
+
+## Visible progress and prepared continuation
+
+Default report_mode is step-updates-and-final, independent of approval mode. At execution start, each step transition and meaningful progress/blocker updates, identify plan/revision, current step index/total, completed steps, remaining **after the current step**, current activity and checkpoint status. Derive counts from the approved ordered sequence, never by parsing the numeric step ID. When scope changes, revise the plan/total under its approval rules.
+
+At a step's end record the actual result/evidence and prepare the next objective, inputs, deliverable, actions/checks and approval status before starting it. Within an approved per-plan/per-batch scope, proceed without redundant confirmations. Per-step and pending batch checkpoints stop execution until authorized; preparing a step does not authorize it. Report a stall or changed fact instead of repeating unchanged status. Keep updates concise and relevant.
+
+Example: “PLAN-XXX revisão 2 · etapa 2 de 5 · 1 concluída · 3 após a atual · agora: validar insumos · checkpoint B-001 aprovado.” Completion: “Etapa concluída: resultado/evidência. Próxima: objetivo, insumos, entrega, checks; checkpoint B-002 pendente.”

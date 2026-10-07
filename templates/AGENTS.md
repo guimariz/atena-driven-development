@@ -64,3 +64,17 @@ While `.atena/state/plan.yaml` has an active plan, classify every new request be
 - Do not fabricate history. Post-hoc specs must declare `origin: post-hoc` and `implementation_preceded_spec: true`.
 - Require explicit approval for canonical-intent or material-architecture changes, dependencies or permissions, destructive/material data actions, sensitive remote context, publication, push, deployment, merge, or external sharing.
 - Before reporting completion, validate the contract and links, run planned checks, compare results with acceptance criteria, record evidence, and reconcile permitted operational facts.
+
+## Visual readiness and specialist routing
+
+- Before visual specialists produce, adapt, animate or review, structure and check the applicable visual bible, character/entity identity and scene context; record reference revisions, DRAFT/CANON state, authority and relevant gaps. Position is not a prerequisite. Scene context can be textual. Explicitly explain N/A identity for work without a relevant entity.
+- Atena prepares missing textual inputs before specialist action. Resolve relevant BLOCKING gaps and respect the current task checkpoint. An authorized experimental draft remains DRAFT.
+- Recommend a specialist for a demonstrated need, with reason, inputs, output, bounded paths/checks and integration owner. Use a local specialist catalog if adopted; do not assume template packages are installed or spawn an agent from a recommendation alone.
+- During adoption, verify actual local instructions/overrides, .atena contract and reference paths. Offer game discovery with visual bible when initializing a new game. Preserve existing canon and local rules; do not assume upstream changes migrate existing games.
+
+## Progress, continuation and content states
+
+- Report plan/revision, current step/total, completed, remaining after current, activity and checkpoint at start, step boundaries and meaningful changes. Derive counts from ordered steps, not numeric IDs.
+- End each step with actual result/evidence and a prepared next objective, inputs, output, checks and approval status. Continue within approved scope without asking again; stop at genuinely pending checkpoints.
+- Always identify DRAFT/CANON and revision for working intent. Authorized draft use is still DRAFT. Explicit content/revision approval promotes only the accepted content; report promotion separately from implementation and verification.
+- If the user has already selected/approved the proposed mode and scope, record it without repeating the approval question. Mode selection wording above applies when the choice remains unresolved.

@@ -1,0 +1,871 @@
+{
+  "base": {
+    "state": {
+      "version": 2,
+      "active_plan": {
+        "id": "PLAN-TEST",
+        "spec_id": "SPEC-TEST",
+        "current_step": "S-010",
+        "total_steps": 3,
+        "status": "ACTIVE",
+        "approval": {
+          "mode": "per-plan",
+          "checkpoint": "PLAN",
+          "status": "APPROVED"
+        }
+      },
+      "plan_cursor": {
+        "current": "S-010 — First",
+        "next": "S-030 — Second"
+      },
+      "suspension": null,
+      "deferred_requests": []
+    },
+    "registry": {
+      "PLAN-TEST": {
+        "spec_id": "SPEC-TEST",
+        "specExists": true,
+        "specStatus": "approved",
+        "status": "active",
+        "revision": 2,
+        "steps": [
+          "S-010",
+          "S-030",
+          "S-090"
+        ],
+        "mode": "per-plan",
+        "approval": {
+          "mode": "per-plan",
+          "checkpoints": [
+            {
+              "id": "PLAN",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "name": "per-plan approved nonconsecutive IDs",
+      "valid": true,
+      "changes": [],
+      "executable": true,
+      "remaining": 2
+    },
+    {
+      "name": "unknown plan",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.id",
+          "value": "PLAN-UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "unknown spec",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.specExists",
+          "value": false
+        }
+      ]
+    },
+    {
+      "name": "plan spec mismatch",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.spec_id",
+          "value": "SPEC-OTHER"
+        }
+      ]
+    },
+    {
+      "name": "missing active cursor",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "plan_cursor",
+          "value": null
+        }
+      ]
+    },
+    {
+      "name": "step outside plan",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.current_step",
+          "value": "S-002"
+        }
+      ]
+    },
+    {
+      "name": "wrong total",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.total_steps",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "name": "cursor current mismatch",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "plan_cursor.current",
+          "value": "S-030 — Second"
+        }
+      ]
+    },
+    {
+      "name": "cursor next skips step",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "plan_cursor.next",
+          "value": "S-090 — Third"
+        }
+      ]
+    },
+    {
+      "name": "unconfigured state mode",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "unconfigured"
+        }
+      ]
+    },
+    {
+      "name": "per-plan with step checkpoint",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "S-010"
+        }
+      ]
+    },
+    {
+      "name": "unknown checkpoint",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "B-001",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stale revision",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.scope_revision",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "missing approver",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.approved_by",
+          "value": null
+        }
+      ]
+    },
+    {
+      "name": "pending record valid stopped",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.status",
+          "value": "PENDING"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.status",
+          "value": "pending"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.approved_at",
+          "value": null
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.approved_by",
+          "value": null
+        }
+      ],
+      "executable": false
+    },
+    {
+      "name": "pending state claims approved record",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.status",
+          "value": "PENDING"
+        }
+      ]
+    },
+    {
+      "name": "completed plan cannot be active",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.status",
+          "value": "completed"
+        }
+      ]
+    },
+    {
+      "name": "draft spec cannot execute",
+      "valid": false,
+      "changes": [
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.specStatus",
+          "value": "draft"
+        }
+      ]
+    },
+    {
+      "name": "duplicate deferred ID",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "deferred_requests",
+          "value": [
+            {
+              "id": "DEV-001",
+              "request": "a",
+              "status": "PENDING"
+            },
+            {
+              "id": "DEV-001",
+              "request": "b",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "suspended missing persisted record",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.status",
+          "value": "SUSPENDED"
+        }
+      ]
+    },
+    {
+      "name": "valid suspension not executable",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.status",
+          "value": "SUSPENDED"
+        },
+        {
+          "target": "state",
+          "path": "suspension",
+          "value": {
+            "request_id": "DEV-001",
+            "mode": "RETURN_AFTER_EXECUTION",
+            "saved_cursor": {
+              "current": "S-010 — First",
+              "next": "S-030 — Second"
+            }
+          }
+        }
+      ],
+      "executable": false
+    },
+    {
+      "name": "suspension saved cursor differs",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.status",
+          "value": "SUSPENDED"
+        },
+        {
+          "target": "state",
+          "path": "suspension",
+          "value": {
+            "request_id": "DEV-001",
+            "mode": "RETURN_AFTER_EXECUTION",
+            "saved_cursor": {
+              "current": "S-030 — Second",
+              "next": "S-090 — Third"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "active retains suspension",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "suspension",
+          "value": {
+            "request_id": "DEV-001",
+            "mode": "RETURN_AFTER_EXECUTION",
+            "saved_cursor": {
+              "current": "S-010 — First",
+              "next": "S-030 — Second"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "idle clean",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan",
+          "value": null
+        },
+        {
+          "target": "state",
+          "path": "plan_cursor",
+          "value": null
+        }
+      ],
+      "executable": false
+    },
+    {
+      "name": "idle stale cursor",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan",
+          "value": null
+        }
+      ]
+    },
+    {
+      "name": "per-step approved current",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "S-010"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "S-010",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2
+            },
+            {
+              "id": "S-030",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            },
+            {
+              "id": "S-090",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            }
+          ]
+        }
+      ],
+      "executable": true
+    },
+    {
+      "name": "per-step next pending no inherited authority",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "S-010"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "S-010",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2
+            },
+            {
+              "id": "S-030",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            },
+            {
+              "id": "S-090",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            }
+          ]
+        },
+        {
+          "target": "state",
+          "path": "active_plan.current_step",
+          "value": "S-030"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "S-030"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.status",
+          "value": "PENDING"
+        },
+        {
+          "target": "state",
+          "path": "plan_cursor",
+          "value": {
+            "current": "S-030 — Second",
+            "next": "S-090 — Third"
+          }
+        }
+      ],
+      "executable": false,
+      "remaining": 1
+    },
+    {
+      "name": "per-step PLAN checkpoint rejected",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "S-010"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-step"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "S-010",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2
+            },
+            {
+              "id": "S-030",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            },
+            {
+              "id": "S-090",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2
+            }
+          ]
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "PLAN"
+        }
+      ]
+    },
+    {
+      "name": "per-batch approved membership",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "B-001"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "B-001",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2,
+              "steps": [
+                "S-010",
+                "S-030"
+              ]
+            },
+            {
+              "id": "B-002",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2,
+              "steps": [
+                "S-090"
+              ]
+            }
+          ]
+        }
+      ],
+      "executable": true
+    },
+    {
+      "name": "batch boundary cannot reuse approval",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "B-001"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "B-001",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2,
+              "steps": [
+                "S-010",
+                "S-030"
+              ]
+            },
+            {
+              "id": "B-002",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2,
+              "steps": [
+                "S-090"
+              ]
+            }
+          ]
+        },
+        {
+          "target": "state",
+          "path": "active_plan.current_step",
+          "value": "S-090"
+        },
+        {
+          "target": "state",
+          "path": "plan_cursor",
+          "value": {
+            "current": "S-090 — Third",
+            "next": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "batch overlap",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "B-001"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "B-001",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2,
+              "steps": [
+                "S-010",
+                "S-030"
+              ]
+            },
+            {
+              "id": "B-002",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2,
+              "steps": [
+                "S-090"
+              ]
+            }
+          ]
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.1.steps",
+          "value": [
+            "S-030",
+            "S-090"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "batch incomplete",
+      "valid": false,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "state",
+          "path": "active_plan.approval.checkpoint",
+          "value": "B-001"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.mode",
+          "value": "per-batch"
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints",
+          "value": [
+            {
+              "id": "B-001",
+              "status": "approved",
+              "approved_at": "2026-10-07T17:00:00Z",
+              "approved_by": "user",
+              "scope_revision": 2,
+              "steps": [
+                "S-010",
+                "S-030"
+              ]
+            },
+            {
+              "id": "B-002",
+              "status": "pending",
+              "approved_at": null,
+              "approved_by": null,
+              "scope_revision": 2,
+              "steps": [
+                "S-090"
+              ]
+            }
+          ]
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.approval.checkpoints.0.steps",
+          "value": [
+            "S-010"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "revised plan recalculates total",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.total_steps",
+          "value": 2
+        },
+        {
+          "target": "registry",
+          "path": "PLAN-TEST.steps",
+          "value": [
+            "S-010",
+            "S-030"
+          ]
+        }
+      ],
+      "executable": true,
+      "remaining": 1
+    },
+    {
+      "name": "last step count",
+      "valid": true,
+      "changes": [
+        {
+          "target": "state",
+          "path": "active_plan.current_step",
+          "value": "S-090"
+        },
+        {
+          "target": "state",
+          "path": "plan_cursor",
+          "value": {
+            "current": "S-090 — Third",
+            "next": null
+          }
+        }
+      ],
+      "executable": true,
+      "remaining": 0
+    }
+  ]
+}

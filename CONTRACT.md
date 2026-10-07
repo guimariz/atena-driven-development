@@ -67,7 +67,7 @@ policies:
 autonomy:
   profile: "guarded-autopilot"
   approval_selection: "required-per-plan"
-  report_mode: "exceptions-and-final"
+  report_mode: "step-updates-and-final"
   max_retries: 3
 
 git:
@@ -228,3 +228,9 @@ For `origin: post-hoc`, `plan.md` is a reconstructed implementation map. It must
 - Direct Execution does not waive mandatory gates in `AUTONOMY.md`.
 - The spec defines its quality gates; no predefined project type is required.
 - RTK status never determines whether an ADD project is valid.
+
+## Semantic plan validation
+
+Schema validity establishes shape; semantic validation also resolves active plan/spec IDs, approved sequence and revision, current/next cursor, step total, matching approval mode/checkpoint and actual approval evidence. Valid PENDING persistence is not executable. Idle state has null cursor/suspension; suspended state preserves its exact saved cursor. Deferred IDs are unique.
+
+Use [the read-only validator](tools/validate-add-state.cjs): node tools/validate-add-state.cjs --project <root> --schema <plan-state.schema.json>. Add --require-executable when checking permission to continue an active step. The portable validator supports the mapping/list/scalar subset used by ADD records; unsupported YAML fails explicitly. New plans identify revision in Plan mode, steps as numbered stable S-XXX IDs, and checkpoint records in the Approval record YAML fence. Per-batch records include steps as a list. The shared [plan template](templates/spec/plan.md) illustrates the contract. Validation never grants approval or executes work.

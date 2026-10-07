@@ -123,3 +123,15 @@ Working documents can summarize proposed decisions. Extract or promote approved 
 Use existing specs for milestones, `.atena/evidence/` for playtest results and validation, and `.atena/state/plan.yaml` for the execution cursor. Runtime assets and builds remain in project-appropriate locations, referenced by the records. No extra canonical workspace, required project type, or custom schema is introduced.
 
 When adopting this guidance in another project, the game section of [templates/AGENTS.md](templates/AGENTS.md) supplies the essential instructions. Copy this guide and relevant templates too if a detailed local reference is useful; adjust any links for the destination.
+
+## Visual readiness before specialist work
+
+Before visual production, adaptation, animation or visual review, Atena structures the applicable visual bible, character/entity identity and scene context, using [visual readiness](templates/game/visual-readiness.md). References identify content, revision, DRAFT/CANON state and authority. Relevant BLOCKING gaps must be resolved. Position is not a prerequisite. Scene context may be textual; no built engine scene is required.
+
+When identity is inapplicable (abstract work, a menu, an environment without a character), record why. A scoped experimental draft authorization supports work without canonical promotion. Missing references return to Atena's textual preparation before any visual specialist acts. Pose/camera/coordinates may be requested for a specific deliverable when genuinely needed, without reintroducing a universal position gate.
+
+## Adoption preflight
+
+Read the project's actual root-to-working-directory instructions, any nearer overrides, configuration, state and referenced guides. Check whether the local instructions contain game discovery, initial bible, visual readiness, progress and specialist routing. Confirm references resolve locally. Do not infer which instructions a past chat loaded from a file inspection alone. Existing project copies require a separately scoped migration; upstream updates do not rewrite them. A new ADD game initialization uses the current [instruction template](templates/AGENTS.md) and offers discovery explicitly, mentioning the visual bible.
+
+[Specialist catalog](GAME-SPECIALISTS.md) provides recommendations by task. Adopt only relevant skill packages/agent briefs, preserving local rules and installed capabilities.

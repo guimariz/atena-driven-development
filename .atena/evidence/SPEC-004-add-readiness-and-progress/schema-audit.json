@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-07",
+  "scope": "read-only schema audit with synthetic fixtures; no operational state changed",
+  "fixtures": [
+    {
+      "name": "valid per-plan",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "valid per-batch",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "valid per-step",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "unconfigured active mode",
+      "schema_accepts": false,
+      "error": "$.active_plan oneOf"
+    },
+    {
+      "name": "pending checkpoint valid persisted shape",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "active plan with missing cursor",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "unknown plan and spec references",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "current step outside plan",
+      "schema_accepts": true,
+      "error": null
+    },
+    {
+      "name": "per-step with PLAN checkpoint",
+      "schema_accepts": true,
+      "error": null
+    }
+  ],
+  "conclusion": "Schema validates field shape and supported approval modes. Pending checkpoint is a valid stopped-state representation. Cross-reference/cursor/checkpoint semantics and actual model compliance require separate validation; no execution approval is inferred."
+}

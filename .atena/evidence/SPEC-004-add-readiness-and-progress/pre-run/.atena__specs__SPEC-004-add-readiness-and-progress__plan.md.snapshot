@@ -1,0 +1,73 @@
+---
+id: "PLAN-004"
+spec_id: "SPEC-004"
+status: "draft"
+approval:
+  mode: "unconfigured"
+---
+
+# Plan of flight — SPEC-004
+
+## Plan mode
+
+Origin: planned; reconstruction: false; revision: 1. Recommended mode: per-plan. No execution checkpoint has been approved or activated.
+
+## Recommended approach
+
+Fix the upstream contract and adoption guidance before creating visual specialist packages. Reuse existing state fields and policies, add semantic checks and scenario evidence, and promote the exact supplemental DEC-002 only within explicit approval.
+
+## Reuse
+
+DEC-001, game discovery, existing approval contract, state schema, plan/templates and dependency-free local Node runtime. No new dependency, framework or agent runtime.
+
+## Implementation sequence
+
+1. `S-001` — Recheck scope/state; record selected mode/checkpoint and approved DEC-002 promotion; activate cursor.
+2. `S-002` — Define applicable visual readiness and adoption/bootstrap guidance; update game and instruction templates.
+3. `S-003` — Implement progress, next-step preparation, draft/canon notices and configuration defaults while preserving approval modes.
+4. `S-004` — Add read-only semantic state validation and fixtures covering supported modes and invalid combinations/references.
+5. `S-005` — Verify criteria, scenario decisions, templates, IDs/links/state and diff; repair within limits.
+6. `S-006` — Record results, promotion/status evidence and deferred migration/package work; reconcile and clear cursor.
+
+## Approval checkpoints
+
+Recommended per-plan: PLAN covers S-001 through S-006, including the exact DEC-002 promotion. Alternative per-batch: B-001 covers S-001–S-003; B-002 covers S-004–S-006. Alternative per-step: each S-XXX is its own checkpoint. Select and record the route before execution; never inherit SPEC-003 approval.
+
+## Expected changes
+
+Seventeen upstream files and bounded operational records listed in [spec.md](spec.md), plus DEC-002 after approval. No edits to local games/global instructions or the state schema.
+
+## Validation
+
+- All acceptance criteria checked against actual files and representative scenarios.
+- Semantic fixtures: known plan/spec/step, active cursor, mode/checkpoint match, approved/pending boundary, suspension, duplicate deferred IDs and truthful idle state.
+- PENDING is valid paused persistence; readiness-to-execute must be false. Schema validity is not execution permission.
+- Test progress counts with nonconsecutive stable step IDs and revised plan totals; next-step preparation never grants an unapproved checkpoint.
+- Demonstrate no visual specialist execution when required baseline is missing; document actual review as documentary/simulated unless a model is separately run.
+- Resolve local links, metadata/IDs, required paths and default configuration consistency; validate closed idle state against existing schema.
+
+## Limits
+
+Seventeen upstream files, approved DEC-002 and operational records. Maximum three repair attempts per failing check. No installs, live delegation/model runs, game execution, publication or other-project mutation.
+
+## Recovery
+
+Preserve existing file versions before implementation; revert only this run's changes with reviewable patches. Preserve unrelated drafts and local project rules. If stopped, record partial outcome before clearing the activated cursor; never falsify approval or promotion history.
+
+## Mandatory gates
+
+Guided ADD checkpoint approval covers the proposed process edits and specifically identified canonical promotion. Other-project migration, global configuration, new dependencies, sensitive remote context, asset production and publication need separate scope/authority.
+
+## Approval record
+
+```yaml
+mode: "unconfigured"
+checkpoints:
+  - id: "PLAN"
+    status: pending
+    approved_at: null
+    approved_by: null
+    scope_revision: 1
+```
+
+User requirements are confirmed; this execution checkpoint has not been inferred as approved.

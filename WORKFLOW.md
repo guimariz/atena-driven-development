@@ -136,3 +136,9 @@ A direct implementation may be operationally complete after validation, but it r
 
 - a post-hoc spec and reconciliation are completed; or
 - the user explicitly declines reconciliation and that decision is recorded where project tooling supports it.
+
+## Step handoff and maturity
+
+Use the [visible progress contract](INTERACTION.md#visible-progress-and-prepared-continuation) throughout execution. Prepare each next step's objective, inputs, deliverable, checks and approval status before advancing. On the last step state that no planned steps remain and list truly deferred work separately. Persist state before advancing and reconcile evidence before clearing it.
+
+Always label the referenced content as DRAFT or CANON with its revision. A draft accepted for a bounded prototype is still DRAFT. A canon promotion requires explicit approval of content/revision; identify the promoted portion and leave the rest draft. Report approved intent, implemented behavior and verified evidence as separate facts. See [maturity rules](POLICIES.md#explicit-content-maturity).

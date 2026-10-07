@@ -55,3 +55,7 @@ Working draft in `.atena/vault/drafts/`. Build the initial version before recomm
 | <topic> | <what would meet direction/readability goals> | <reference or review result> | <class if pending> | <action> |
 
 Distinguish hypotheses from stable approved direction. Approve the exact content/revision before canonical promotion. Generating images or acquiring assets requires a bounded authorized scope; a text/reference bible may suffice initially.
+
+## Referência para especialistas
+
+Declarar revisão e estado DRAFT/CANON, conteúdo aprovado ou uso experimental autorizado. Vincular identidade de personagens/entidades aplicáveis e contexto da cena no [registro de prontidão](visual-readiness.md). Posição não é pré-requisito. Toda produção/adaptação/animação/revisão visual depende dessa prontidão; Atena pode estruturar os documentos textuais antes de encaminhar o trabalho. Não promover escolhas experimentais silenciosamente.

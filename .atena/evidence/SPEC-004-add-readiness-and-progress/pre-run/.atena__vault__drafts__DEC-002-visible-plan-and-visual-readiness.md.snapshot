@@ -1,0 +1,21 @@
+# Decisão proposta — prontidão visual e progresso explícito
+
+Estado: DRAFT. ID canônico proposto: DEC-002. Revisão proposta: 1. Data: 2026-10-07.
+
+## Conteúdo exato proposto para aprovação
+
+ADD exige que a atuação de especialistas visuais seja precedida de referências estruturadas e identificadas: bíblia visual, identidade do personagem/entidade, posição/apresentação e contexto/composição de cena, conforme aplicáveis ao recorte. Atena organiza a preparação e apresenta readiness com lacunas; especialistas só atuam após os requisitos pertinentes estarem completos e o trabalho autorizado.
+
+Cada referência declara seu estado e revisão. O uso experimental autorizado de um draft não o transforma em canon. Conteúdo estável só é promovido com aprovação explícita que identifique o conteúdo/revisão e sua evidência; promoções parciais preservam o restante como draft.
+
+O padrão de comunicação de execução mostra andamento por etapa e resultado final. Atena informa plano/revisão, etapa atual/total, concluídas, restantes após a atual, atividade e checkpoint. Ao concluir uma etapa, registra o resultado e deixa a próxima estruturada. O modo de aprovação determina quando pode executá-la: por plano, lote ou etapa. Reportar progresso não cria checkpoints adicionais.
+
+A adoção local verifica instruções, referências e contrato; atualizar o pacote da metodologia não atualiza automaticamente as cópias de projetos. Novas especializações mantêm entregas e permissões delimitadas; Atena é responsável pela integração.
+
+## Escopo e relação com o cânone
+
+Complementa DEC-001 sem remover a entrevista adaptativa, a bíblia antes da recomendação técnica, a aprovação de intenção e o papel do feedback humano. UI/jogos abstratos/cenas sem personagens marcam requisitos inaplicáveis com justificativa. Não impõe gênero, engine, técnica visual ou uma equipe fixa.
+
+## Origem e efeito da aprovação
+
+Proposta derivada do pedido e da inspeção registrados na SPEC-004. Se o usuário aprovar PLAN-004 revisão 1 incluindo esta promoção, criar o registro em vault/canon com ID DEC-002, metadados do contrato e fontes da descoberta/resultado. Até lá, este arquivo permanece draft; não há promoção nem mudança oficial registrada.

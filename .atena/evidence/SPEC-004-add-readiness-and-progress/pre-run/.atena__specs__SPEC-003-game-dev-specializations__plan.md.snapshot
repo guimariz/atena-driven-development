@@ -1,0 +1,74 @@
+---
+id: "PLAN-003"
+spec_id: "SPEC-003"
+status: "draft"
+approval:
+  mode: "unconfigured"
+---
+
+# Plan of flight — SPEC-003
+
+## Plan mode
+
+- Origin: `planned`; reconstruction: `false`; revision: 2. Refinement of an unapproved draft; see [revision notes](revision-notes.md).
+- No active cursor. Recommended approval is `per-plan`; selection remains with the user.
+
+## Recommended approach
+
+Produce the portable packages and briefs in [spec.md](spec.md), with a sprite contract and temporal diagnostics for Godot + ChatGPT. Keep detailed image/sequence/Godot checks in focused references. Use available generation/editing capabilities without duplicating their implementations.
+
+## Reuse
+
+DEC-001, existing visual bible/readiness/playtest, automation brief templates, skill-creator structure/validator, and available image generation/editing or visual-debugging capabilities when relevant. Do not impose a 3D production CLI for sprite work.
+
+## Implementation sequence
+
+1. `S-001` — Verify SPEC-004's implemented readiness contract, then recheck answers/scope/state and record selected mode/checkpoint before activation.
+2. `S-002` — Write the two contract/review templates, defining applicable fields and evidence states.
+3. `S-003` — Create two focused skill packages and two bounded agent briefs with traceable handoff.
+4. `S-004` — Add minimal links/routing to GAMES and project instructions; preserve the game discovery sequence.
+5. `S-005` — Validate skill structure and scenario decisions, links, IDs and state; repair supported findings within limits.
+6. `S-006` — Record actual results and limitations, reconcile and clear the cursor after a terminal outcome.
+
+## Approval checkpoints
+
+Recommend `per-plan`: `PLAN` covers `S-001` through `S-006`. If the user chooses `per-batch`, `B-001` covers `S-001`–`S-003` and `B-002` covers `S-004`–`S-006`. For `per-step`, each stable step is its checkpoint. A prior plan's approval does not apply.
+
+## Expected changes
+
+Ten official files listed in the spec; operational evidence and state. No installed global skills, project runtime, canonical edits or SPEC-002 implementation.
+
+## Validation
+
+- Skill-creator structural validator on each entrypoint package; inspect trigger precision, reference discoverability and role permissions.
+- Documentary scenarios: inconsistent generated sprite proportions, sheet extraction/pivot errors, mismatched step rhythm and speed, controller/frame resets, broken loop, no runtime evidence, absent optional tool, and out-of-scope intent changes.
+- Each review identifies a discriminating check, bounded next action and what cannot yet be concluded. Examples remain explicitly illustrative.
+- Root ADD paths, unique record IDs, local links, state schema, diff and each acceptance criterion.
+- No independent-agent or engine-runtime pass is claimed without such execution. A separately authorized pilot is required for effectiveness claims.
+
+## Limits
+
+- Official changed-file budget: 10; max repair attempts per failing check: 3.
+- No external spend, installation, asset acquisition, real project execution, automatic delegation or publication. Missing bible/identity/position/scene readiness blocks subsequent visual specialist action; these packages do not bypass it.
+
+## Recovery
+
+Preserve the pre-run document versions. Revert only this run's changes with reviewable patches; preserve unrelated edits. Record partial/stopped outcome before clearing an activated cursor.
+
+## Mandatory gates
+
+The user's Guided ADD instructions require plan approval before ordinary implementation. Global installation, dependencies, provider spend, sensitive remote context, real-project writes outside the approved scope and publication require separately bounded authority.
+
+## Approval record
+
+```yaml
+mode: "unconfigured"
+checkpoints:
+  - id: "PLAN"
+    status: pending
+    approved_at: null
+    approved_by: null
+    scope_revision: 2
+```
+
+The request authorizes recommendations and proposal preparation. It does not yet approve this implementation checkpoint.

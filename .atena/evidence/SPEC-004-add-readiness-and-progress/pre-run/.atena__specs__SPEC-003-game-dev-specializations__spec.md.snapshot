@@ -1,0 +1,113 @@
+---
+id: "SPEC-003"
+title: "Portable 2D sprite and animation specializations"
+status: "draft"
+origin: "planned"
+implementation_preceded_spec: false
+created: "2026-10-07"
+canonical_refs:
+  - "DEC-001"
+---
+
+# Portable 2D sprite and animation specializations
+
+## Objective
+
+Provide two bounded skills and two agent briefs for 2D sprite consistency and animation review, prioritizing the user's Godot + ChatGPT workflow. Their deliverables distinguish image consistency, temporal continuity, engine integration and human acceptance.
+
+## Context and evidence
+
+Draft revision 2 incorporates the user's 2026-10-07 prerequisite requirement. [Revision notes](revision-notes.md) preserve the earlier proposal's scope and the reason for this refinement. No approved plan is replaced.
+
+- [User request and discovery](../../evidence/SPEC-003-game-dev-specializations/discovery.md).
+- [Reviewable recommendation](../../vault/drafts/game-dev-specializations-2026-10-07.md).
+- [Primary sources](../../vault/research/game-animation-sources-2026-10-07.md).
+- [Approved game path](../../vault/canon/DEC-001-game-guidance.md).
+- Existing game templates and optional plugin skills can be reused. No real game/asset has been supplied or diagnosed.
+- [SPEC-004](../SPEC-004-add-readiness-and-progress/spec.md) defines the common visual readiness/progress/status contract proposed before these packages.
+
+## Scope
+
+- Portable `atena-game-sprite-fit` and `atena-game-sprite-animation-review` skill packages under `templates/automation/game/skills/`, each with one focused reference.
+- Technical artist and game QA briefs under `templates/automation/game/agents/`, with deliverable, read/write scope, handoff and limits.
+- Two optional templates: `templates/game/sprite-contract.md` and `templates/game/sprite-motion-review.md`, covering applicable 2D fields and Godot integration without mandating pixel art or cutout animation.
+- Links and minimal routing guidance in GAMES.md and templates/AGENTS.md.
+- Validation of skill structure, references, role boundaries, contract and realistic documentary scenarios.
+- Both skills/briefs check applicable visual bible, character identity, position/presentation and scene context before visual work; missing readiness returns control to Atena's discovery rather than initiating production/review.
+
+## Non-goals
+
+- Repair/generate/download assets, create a game scene or claim runtime/motion quality validation.
+- Choose/change the engine, buy tools, install dependencies, invoke providers, configure credentials or spend credits.
+- Install skills globally or activate agents automatically; delegate live work without a bounded authorization.
+- Implement SPEC-002 or create a new workspace/schema/framework.
+- Add 3D rigging/retargeting guidance in this first implementation.
+- Modify DEC-001, existing approval semantics or lore; publish, push or merge.
+
+## Decisions
+
+| Decision | Proposed choice | Rationale | Status |
+| --- | --- | --- | --- |
+| Priority | 2D consistency and animation diagnosis first | User confirmed sprites, Godot + ChatGPT | confirmed requirement |
+| Packaging | Portable repository packages, optional project adoption later | ADD is portable; avoid changing user-global behavior | proposed default |
+| Breadth | Sprites first, with frame-by-frame and cutout decision criteria | Style unspecified; avoid imposing a technique | proposed default |
+| Roles | Technical artist owns bounded candidate; QA owns bounded evidence | Named deliverables and clear integration owner | proposed |
+| Tools | Reuse relevant image generation/editing and visual debugging; record missing capability | Avoid duplicate implementations or mandatory plugins | proposed |
+| Readiness | Require the common bible/identity/position/scene contract before acting | User's new explicit requirement, SPEC-004 | confirmed requirement |
+| Integration owner | Atena integrates findings into the milestone spec | Prevent conflicting edits and acceptance claims | proposed |
+
+## Gaps
+
+### BLOCKING
+
+- SPEC-004's common readiness contract must be approved and implemented before this package plan is executable. This draft remains unapproved and is not presented as execution-ready.
+- Approval mode and checkpoint are pending authorization requirements, not granted authority.
+- Real asset, project/engine version and reproducible symptoms are required for a later repair pilot; that pilot is excluded here.
+
+### RESOLVABLE
+
+- Storage: repository-portable templates, no global installation.
+- Examples: 2D proportion/pivot drift, timing/contact defects and Godot playback/configuration; pixel-art/cutout remain conditional techniques.
+- Thresholds: chosen per project/camera/reference rather than universal numeric values.
+- Validation: structural and documentary scenarios; actual runtime evidence stays pending until a separately authorized pilot.
+
+### DEFERRED
+
+- Live pilot, engine-specific adapters, deterministic inspection scripts, generated assets and automatic repairs.
+- Design, gameplay, level, audio, UI, performance and delivery specializations beyond this first scope.
+- 3D rigs and retargeting.
+- SPEC-002 implementation and publication.
+
+## Acceptance criteria
+
+See [acceptance.md](acceptance.md). Criteria cover meaningful triggers, image/sequence/engine diagnostics, sprite conventions, distinct agent boundaries, traceable handoffs, truthful evidence and structural validation.
+
+## Impact
+
+### Expected files/systems
+
+Ten official files: two skill entrypoints, two references, two agent briefs, two game templates, GAMES.md and templates/AGENTS.md. Run records and plan state only within an approved execution. Existing templates remain usable independently.
+
+### Canonical impact
+
+No canonical record promotion or revision proposed. Adoption adds optional operational guidance consistent with DEC-001. Approval of this exact scope authorizes the specified templates and routing additions, not a material revision of a game's intent.
+
+## Plan of flight and validation
+
+See [PLAN-003](plan.md). Review realistic scenarios without claiming a real engine run or independent assessment. Verify packages with the skill-creator validator where available and validate links/IDs/state. A future pilot measures practical value before global installation or expansion.
+
+## Evidence and reconciliation
+
+Preparation in [discovery.md](../../evidence/SPEC-003-game-dev-specializations/discovery.md). Authorized implementation must record actual outputs, criteria, limitations and remaining pilot work before clearing the cursor. SPEC-002 stays draft and separate.
+
+## Risks
+
+- Excess roles/paperwork: two skills and two briefs; invoke only for a bounded need.
+- Superficial animation fixes: require hypotheses and image/sequence/engine comparison; visual acceptance cannot be inferred from import success.
+- Style overgeneralization: preserve pixel-art/illustration distinctions and evaluate intentional pose deformation separately from identity drift.
+- Tool dependency: optional routing with missing-capability reporting and no silent installation.
+- Fictional tests mistaken for evidence: explicit illustrative labels and pending runtime status.
+
+## Post-hoc disclosure
+
+Not applicable. Only inspection, research and proposal preparation preceded approval; no skill packages or official process changes have been implemented.

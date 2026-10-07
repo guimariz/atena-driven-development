@@ -36,7 +36,7 @@ policies:
 autonomy:
   profile: "guarded-autopilot"
   approval_selection: "required-per-plan"
-  report_mode: "exceptions-and-final"
+  report_mode: "step-updates-and-final"
   max_retries: 3
 
 git:

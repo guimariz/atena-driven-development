@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-07T17:39:26.864Z",
+  "status": "pass",
+  "state": {
+    "valid": true,
+    "executionReady": false,
+    "state": "idle"
+  },
+  "planFixtures": 34,
+  "parserChecks": 4,
+  "readinessScenarios": 14,
+  "skills": 10,
+  "agentBriefs": 10,
+  "packageLinks": 12,
+  "markdownDocuments": 86,
+  "localLinks": 195,
+  "recordIds": [
+    "PLAN-001",
+    "SPEC-001",
+    "PLAN-002",
+    "SPEC-002",
+    "PLAN-003",
+    "SPEC-003",
+    "PLAN-004",
+    "SPEC-004",
+    "DEC-001",
+    "DEC-002"
+  ],
+  "defaultConsistency": "pass",
+  "spec002": "unchanged/unapproved",
+  "canonicalPromotion": "DEC-002 revision 2 explicitly approved",
+  "officialSkillValidator": {
+    "status": "unavailable",
+    "reason": "Bundled Python ModuleNotFoundError: yaml; no dependency installed",
+    "alternative": "Dependency-free local package validator checks current flat frontmatter, naming, scaffold absence and references"
+  },
+  "limits": [
+    "Documentary and synthetic decision validation only; no live model/agent/game/provider evaluation.",
+    "No actual asset/human aesthetic/playtest evaluation performed.",
+    "Local Markdown destination checks, not fragment anchors or external availability.",
+    "Read-only semantics resolve local records; supplied human approval authenticity is not cryptographically verified.",
+    "YAML supports documented ADD mapping/list/scalar subset; unsupported syntax is rejected.",
+    "Credential-pattern scan cannot prove absence of all sensitive data."
+  ]
+}
