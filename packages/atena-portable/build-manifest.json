@@ -1,0 +1,309 @@
+{
+  "version": "0.4.0",
+  "kind": "local-candidate",
+  "sourceFiles": [
+    {
+      "path": "payload/ADD.md",
+      "sha256": "0e22c833b4c2b0fbda7e0dee92f60069404841322984d4cb4bb718a90901981a"
+    },
+    {
+      "path": "payload/INTERACTION.md",
+      "sha256": "4dd63ab4e777a625ac7e20957a8eaebd4732fcb9d891e619a792b833ffa4f879"
+    },
+    {
+      "path": "payload/WORKFLOW.md",
+      "sha256": "19772166563773db2b165efc89b2fbb116da787b2e6b0b3438341c18167b9eb1"
+    },
+    {
+      "path": "payload/AUTONOMY.md",
+      "sha256": "bdc68d2b688892168febcb29e73732c60d5b259b27a306af55e6b640cea698b1"
+    },
+    {
+      "path": "payload/POLICIES.md",
+      "sha256": "fd97eb7ffafe93c9f9477672846ac09f4ee2ca25892edbff8ab7625496a7b3d6"
+    },
+    {
+      "path": "payload/CONTRACT.md",
+      "sha256": "bc945469878c06af2de4be7d69cebbe5e33117f3bf5ceac180e9b541b808275d"
+    },
+    {
+      "path": "payload/GAMES.md",
+      "sha256": "5134b46baf68c483467a845391b3bfaea141f7ec73dd6e1a62037c5911f5bf4d"
+    },
+    {
+      "path": "payload/GAME-SPECIALISTS.md",
+      "sha256": "66b52c3fd72ab8413408ef47d492fcb2151b8e03e05ce57d9db95a0cbadee3b2"
+    },
+    {
+      "path": "payload/UPDATING.md",
+      "sha256": "2bfae9879bb2a3a19b705e043e94f58ca43dd937ce3dea55786af87a228df601"
+    },
+    {
+      "path": "payload/templates/AGENTS.md",
+      "sha256": "13001aa2ecb94dd0c8a446dc43347e6225ab27927f82c69e9c8d9b56304e9a4b"
+    },
+    {
+      "path": "payload/templates/spec/acceptance.md",
+      "sha256": "0b3ceab37486e73047dfc23feb167954e71a1ef1752fef70b9547c6148651dab"
+    },
+    {
+      "path": "payload/templates/spec/plan.md",
+      "sha256": "c479a75c91a760998e9c8d8d33bfe12cc1cece22b8a0be793b3965e7c42f78ec"
+    },
+    {
+      "path": "payload/templates/spec/spec.md",
+      "sha256": "35939de1403b3ab3e8aeea8da5a9cd07df75ca0e5b8b45a84948922cfbf5ee47"
+    },
+    {
+      "path": "payload/templates/spec/tasks.md",
+      "sha256": "44c63fb8e6344c76d0ef8d2a4452ff9e7c97c35bcd76d4a256854fb9dc3a260f"
+    },
+    {
+      "path": "payload/templates/state/plan.yaml",
+      "sha256": "198be573105594986c8728598aa9390eacb710cdca88445ed5427b365adf1e89"
+    },
+    {
+      "path": "payload/templates/vault/add.yaml",
+      "sha256": "a8dbd1bf6d378b64e23169d200876c8f6959769cba14372d4f3659c63c48c420"
+    },
+    {
+      "path": "payload/templates/vault/canonical-record.md",
+      "sha256": "8242f0fce7a359db2c095db1faca50bf896e1c22b746c930b0d5ed78c5f01f2f"
+    },
+    {
+      "path": "payload/templates/game/design.md",
+      "sha256": "0c34a04a17b52a97e190165170fb8a9c867bbe205b8f766ee62fa553def65de5"
+    },
+    {
+      "path": "payload/templates/game/playtest.md",
+      "sha256": "10d467488617d368a9d6bf3fb1633715e64bad5868ac474d308916fc699f9dd9"
+    },
+    {
+      "path": "payload/templates/game/prototype-readiness.md",
+      "sha256": "891b18162ae6411ac82715f24b356357cb5c2504370a2335fdf33e8a9ea3d2bf"
+    },
+    {
+      "path": "payload/templates/game/sprite-contract.md",
+      "sha256": "3cd4f3cd8fb39168ffe732c4e6c18e8c1f20eb072e1d38812264a864b4384fad"
+    },
+    {
+      "path": "payload/templates/game/sprite-motion-review.md",
+      "sha256": "42ecbaf3bffbefc5cfcea97ccc138e0d57a6b9fb4833a6dfc52de0bc74dcc4a4"
+    },
+    {
+      "path": "payload/templates/game/vision.md",
+      "sha256": "c76f00d75623524aad522b2b65a1ec9a0a01206a86f1571f905771f9d3264e85"
+    },
+    {
+      "path": "payload/templates/game/visual-bible.md",
+      "sha256": "8c6c83919ef1f289b1d2e735e312e1457588ed1fab4624ebcf7e4a2191791c36"
+    },
+    {
+      "path": "payload/templates/game/visual-readiness.md",
+      "sha256": "3260a8cfd5d8858f320165bf4e747511991bbb11ba4847cf1a987a915604b13e"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/audio-feedback-designer.md",
+      "sha256": "dc213b117e8ca6d1e3eb1259953ae5a0ac8b2bd4e3f1d7e9217d823ad442b51b"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/content-narrative-editor.md",
+      "sha256": "6be6dceabd913d11a66085a7d59628622ade6b7c1b3cd8a1d49956d490e08333"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/game-designer.md",
+      "sha256": "1ec6361107016bd3e68ec144ea94f102b1f504fe57dceadb9bc904d3377b5f6f"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/gameplay-engineer.md",
+      "sha256": "575f7a5678bc02babb557f7f977191f7e162ab5141aeea810c3a06adef5e9b9f"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/level-world-designer.md",
+      "sha256": "8e08a95b4c5237225001cdcf4bf63b16418a83898f9375d3119d0e75800ce998"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/performance-delivery-engineer.md",
+      "sha256": "77c7ab528629076ba13e994dbc83094aabc9909c71345870e29623b5fd175eda"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/qa-playtest-planner.md",
+      "sha256": "bece586cca0b49dfdc440f923f4d34a25cfb00bc788becc5f55aee7631727194"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/technical-artist-2d.md",
+      "sha256": "b18b4bae01b64a194db7d5295c7b0930bca5d79ba8c6b4372f31bf12349dfcc1"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/ui-accessibility-designer.md",
+      "sha256": "6981aced2a26777057284610e62731ba63c2d41748210e283ccb062aa5ad06f3"
+    },
+    {
+      "path": "payload/templates/automation/game/agents/visual-qa-2d.md",
+      "sha256": "154feb07dbaeb72f55f839b030a8c18c7d0b55ed2633d80c560c0b985a0fee82"
+    },
+    {
+      "path": "payload/templates/automation/game/catalog.json",
+      "sha256": "cb056daeb956b59c978601c2eb6566f40b421afbec3745668a3f7287baf38fdf"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-audio-feedback/SKILL.md",
+      "sha256": "2bf2cc0417d20d65931d7e815fb6ec91110488b90b35a5d2e81947d2460cc555"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-design/SKILL.md",
+      "sha256": "710638bc0835cb0ac97d35ffc1f0392ef01eeab160d78bd12da2c6203cd13253"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-gameplay/SKILL.md",
+      "sha256": "8c4dee4782e3c0d7083abdb680a3c920c618956dadf59f0ed1244e091d6d6478"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-levels/SKILL.md",
+      "sha256": "6dc2d406efa1897bdb8ff91ecf876dc6921d5ba65ee774d6dee48e2a67dd16bd"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-narrative/SKILL.md",
+      "sha256": "baba00f0f118bb5c91fa7c6ddedfff77aa6b835fa548b7092e64216795079fa1"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-performance-delivery/SKILL.md",
+      "sha256": "fd4f8d6c8737f77f6ee3d319efe96c13797177987736235cba1c33ea9a8e76cb"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-qa/SKILL.md",
+      "sha256": "243d6b9770f764e45b3e6422c9463a669f05869fb20485ee2f69a0c5c423dea0"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-sprite-animation-review/SKILL.md",
+      "sha256": "c9fa2ec2e21ae82398cf7b79c2fa5c96c677bc1d67b8194b225c58d4448e906e"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-sprite-animation-review/references/motion-review.md",
+      "sha256": "6a77c32974d1c4c389397991ac44bca5e09011dc5b503d3f7b1ab4387eca6a89"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-sprite-fit/SKILL.md",
+      "sha256": "3966f6d1cae69812e998cbbeeaea772e981515609d0e1d9664fecbe7dc5605cc"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-sprite-fit/references/sprite-fit.md",
+      "sha256": "35e4f55f6be7741c66acd6be0324df947c16c479a0650b2670595efa7832f709"
+    },
+    {
+      "path": "payload/templates/automation/game/skills/atena-game-ui-accessibility/SKILL.md",
+      "sha256": "2009ed722fd1d3e5c231efaab1894918738879606dbf415fb0878f45a1c87974"
+    },
+    {
+      "path": "payload/templates/canonical-record.md",
+      "sha256": "3467bfd1f28470f26f2c9a6923d37dba04b72350412966cba080816d0b0abb6a"
+    },
+    {
+      "path": "payload/templates/agent.md",
+      "sha256": "f2a5d631dbe4955d5ec3a14dad7f64e4ae8914007a8d1b9463a666271453fc0d"
+    },
+    {
+      "path": "payload/templates/skill.md",
+      "sha256": "34b7bd0fb36bb7152ff6add93d23199594700ce30ee405b4977fd45b276fa401"
+    },
+    {
+      "path": "payload/schemas/plan-state.schema.json",
+      "sha256": "d9b3abfbbc1ee0a0f1b49a35185045b01ea8fa8bfb057265df3d873a77b8449e"
+    },
+    {
+      "path": "payload/tools/validate-add-state.cjs",
+      "sha256": "9bcd064b68c93ce57a7f2e8d95e96220389d218aebb5f2ea9caa8aedac55ae04"
+    },
+    {
+      "path": "payload/tools/validate-game-specialists.cjs",
+      "sha256": "e61e89b7353fcbd043f2c70407ef322ac2a169de75ce44b4d1659c0e7e456c48"
+    },
+    {
+      "path": "payload/assets/atena-mark-eyes-v2.png",
+      "sha256": "6c340304b6319c0953fc4aba10a95f395518dd0cdf417a120f39197d4cb64d87"
+    },
+    {
+      "path": "package.json",
+      "sha256": "6c725b9a43dfdcf70b82dcf8c6c375a995ecc97176fd822254d37fece3bdf111"
+    },
+    {
+      "path": "README.md",
+      "sha256": "54970a01c98976ea8f602a03f7ee000ed1d928bc40e0b3c66851139000bc1764"
+    },
+    {
+      "path": "CLEANUP.md",
+      "sha256": "57256cb26e213f6f38ec7de9584cd1dc4c14ce39d907ba3142aa441abc06c39a"
+    },
+    {
+      "path": "PROCEDURAL.md",
+      "sha256": "be8d1d34c18afbf322f990aafc0278a49165f60bea4aa70ce1fc013bb0ca248a"
+    },
+    {
+      "path": "bin/atena-add.cjs",
+      "sha256": "659c7f7141c8ac9eabe8289e6e1d574327299e90f027846afc777175565c7bf9"
+    },
+    {
+      "path": "lib/cli.cjs",
+      "sha256": "545ef03f48b96b02814c6f5979c2db9fea8f89984b0247337105c851189991ea"
+    },
+    {
+      "path": "lib/lifecycle.cjs",
+      "sha256": "a05c6f76ff77ec5e3f549a5eee33f5ddda8d48db1c4ae5f3fcf3b27a362d6daa"
+    },
+    {
+      "path": "lib/procedural.cjs",
+      "sha256": "b52b2015b93eb11ebe3545e8a36124a641e3c6001d6e2d6b1d5ac78dce9c10fe"
+    },
+    {
+      "path": "payload/identity/manifest.json",
+      "sha256": "2d4d1a32a5e494f39b1154b41abaffd8ba678d926725f548a84d91bde112b238"
+    },
+    {
+      "path": "payload/adapters/CONTRACT.md",
+      "sha256": "16e87eeb443648a21e083e6e133f44de4a138f6e26707fd566ff767c274edf6f"
+    },
+    {
+      "path": "payload/adapters/catalog.json",
+      "sha256": "907fdf8a905d056f045d7e2716cf093ea92a19e685d25619aa9d38d2739b7f13"
+    },
+    {
+      "path": "payload/procedural/pilots.json",
+      "sha256": "bc4f7fce19410fa6aadfea5098c07cca1cfc82ad78769678fa189624db9df798"
+    },
+    {
+      "path": "payload/procedural/tools.json",
+      "sha256": "dd827a8f38389ffb7aa8f55dc0f0a03db688054507d20ec5191ae3a17f021752"
+    },
+    {
+      "path": "payload/AGENT-COORDINATION.md",
+      "sha256": "6a7566dacacbd343f270ecd85056a899e708b0a06563e96b7a0bbac2a327268b"
+    },
+    {
+      "path": "payload/COMMUNICATION.md",
+      "sha256": "dbac8ddf2e35dceab96d52b317413eaec114083f8d0139c43a9e108f4a6ec296"
+    },
+    {
+      "path": "payload/ACTIVATION.md",
+      "sha256": "32531480826ad3a4caca7857f974e0a1ac8b4a67a14921821b7f50db478445ad"
+    },
+    {
+      "path": "payload/phrases.json",
+      "sha256": "191bb5836e279bd72c7095187a2c2ff98387691a5ba52f055d004d65181ec856"
+    },
+    {
+      "path": "payload/bootstrap.yaml",
+      "sha256": "18d3b4b3b5217242e29ddff24e667e0fc248b6138f56641619ada7ef4755a2be"
+    },
+    {
+      "path": "payload/manifest.json",
+      "sha256": "afc59ae10761e199d6c37c5411cfa462f0073fd243eede313123bc48d27539ed"
+    }
+  ],
+  "excludes": [
+    "maintainer .atena",
+    "personal knowledge/profile",
+    "credentials",
+    "NoctAssetForge",
+    "executable approvals"
+  ]
+}

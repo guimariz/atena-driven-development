@@ -1,0 +1,16 @@
+{
+  "version": "0.4.0",
+  "revision": "r1",
+  "state": "source-distribution",
+  "sealedPackage": true,
+  "publicationVerification": {"repository": "https://github.com/guimariz/atena-driven-development", "ref": "refs/heads/main", "method": "Compare the intended commit SHA with the remote ref after push; this file does not attest publication."},
+  "licenseDecision": "existing README terms preserved; no new license chosen",
+  "runtimeClients": "unverified",
+  "excluded": [
+    "maintainer state",
+    "private specialists/corpus",
+    "credentials",
+    "procedural engines",
+    "pilot outputs"
+  ]
+}

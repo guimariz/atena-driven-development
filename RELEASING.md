@@ -1,0 +1,11 @@
+# Publication review — not authorization to push
+
+Proposed destination: https://github.com/guimariz/atena-driven-development, public repository, main baseline 39473e770211c050ff99e0f04501b62c06ee183e. Visibility/main SHA were read through the connected GitHub API on 2026-11-05; recheck before any write. That connector reports pull=true and push=false. Local SSH configuration is not proof of a GitHub identity or write permission. Do not switch credentials or publish through another account to bypass access.
+
+This source tree explicitly excludes maintainer .atena, private knowledge/profiles, presentation/evidence history, tmp, source attachments, procedural engines and pilot outputs. It carries only generic ADD package bytes plus these portable documents and a local test harness. It does not import the private specialist-review staging. The sealed 0.4.0 r1 payload is byte-identical to the local candidate; do not rewrite it under the same identity.
+
+The existing public repository/history already tracks maintainer workspace records and binary presentations. Ignoring files in a new tree does not remove public history. No automatic deletions, history rewrite, visibility change or force-push is proposed. Privacy and any third-party rights in the reachable history need a separate decision.
+
+The existing README License section is preserved literally; no new license or broader authorship claim is introduced. The owl bytes already public at assets/atena-mark-eyes-v2.png are retained inside the verified package because its integrity manifest requires that path. This is packaging of the same artwork, not a new artwork claim; its creative provenance is not established by Git history alone. No engine/runtime is bundled; source hashes and tool names in generic contracts do not grant third-party software rights.
+
+Before any commit/push/release, review the precise file delta, handling of existing public files, provenance/license, selected destination/branch, write identity and final hashes. This staging is a candidate overlay, not a complete deletion/replacement plan for main. source-manifest.json outside this source tree identifies the allowlisted bytes. No .git, local approvals or private test data belong in the publication tree. Do not bulk-add the maintainer worktree.
