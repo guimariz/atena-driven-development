@@ -85,7 +85,7 @@ function loadRegistry(project,active) {
  const registry={};if(!active)return registry;
  for(const e of fs.readdirSync(path.join(project,'.atena/specs'),{withFileTypes:true})){
   if(!e.isDirectory())continue;const dir=path.join(project,'.atena/specs',e.name), planFile=path.join(dir,'plan.md');if(!fs.existsSync(planFile))continue;
-  const text=read(planFile),meta=frontmatter(text);if(meta.id!==active.id)continue;assert(!registry[meta.id],'Duplicate plan ID');
+  const text=read(planFile).replace(/^\uFEFF/,'');if(!text.match(/^---\r?\n/)){if(text.includes(active.id))throw new Error('Active plan missing frontmatter');continue;}const meta=frontmatter(text);if(meta.id!==active.id)continue;assert(!registry[meta.id],'Duplicate plan ID');
   const specFile=path.join(dir,'spec.md'),spec=fs.existsSync(specFile)?frontmatter(read(specFile)):null;
   const revision=text.match(/\brevision:\s*(\d+)/i)?.[1];assert(revision,'Missing plan revision');
   const section=text.split(/^## Approval record\s*$/m)[1];assert(section,'Missing approval section');const fence=section.match(/```yaml\r?\n([\s\S]*?)\r?\n```/);assert(fence,'Missing approval YAML');
@@ -93,6 +93,32 @@ function loadRegistry(project,active) {
  }
  return registry;
 }
+
+// A valid legacy plan is not evidence that it belongs to the caller's chat.
+const conversationKeyPattern=/^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/;
+function conversationStateFile(project,key) {
+ assert(typeof key==='string'&&conversationKeyPattern.test(key),'Invalid conversation key');
+ const root=path.resolve(project), parts=['.atena','state','conversations',key,'plan.yaml'];
+ let at=root;
+ for(const part of parts){at=path.join(at,part);if(fs.existsSync(at))assert(!fs.lstatSync(at).isSymbolicLink(),'Conversation state link refused');}
+ return at;
+}
+function selectConversationState(project,key) {
+ if(key===undefined){
+  const file=path.join(project,'.atena/state/plan.yaml');
+  return {file,state:parseYaml(read(file)),binding:'unscoped'};
+ }
+ const file=conversationStateFile(project,key);
+ if(!fs.existsSync(file))return {file,state:{version:2,active_plan:null,plan_cursor:null,suspension:null,deferred_requests:[]},binding:'absent'};
+ const state=parseYaml(read(file));
+ assert(state.conversation&&state.conversation.key===key,'Conversation binding mismatch');
+ return {file,state,binding:'matched'};
+}
+function validateConversationState(selected,registry,schema) {
+ const result=validateState(selected.state,registry,schema);
+ return {...result,executionReady:result.executionReady&&selected.binding==='matched',binding:selected.binding,conversation:selected.state.conversation?.key||null};
+}
+
 function fixtureChecks(file,schema){
  const data=JSON.parse(read(file)),base=data.base;let count=0;
  for(const f of data.cases){const state=structuredClone(base.state),registry=structuredClone(base.registry);for(const change of f.changes||[]){let target=change.target==='state'?state:registry;const parts=change.path.split('.');for(const key of parts.slice(0,-1))target=target[key];target[parts.at(-1)]=change.value;}let result,error;try{result=validateState(state,registry,schema);}catch(e){error=e.message;}assert.equal(!error,f.valid,f.name+': '+(error||'unexpected pass'));if(f.valid&&f.executable!==undefined)assert.equal(result.executionReady,f.executable,f.name+' readiness');if(f.remaining!==undefined)assert.equal(result.remainingAfterCurrent,f.remaining,f.name+' count');count++;}
@@ -101,10 +127,10 @@ function fixtureChecks(file,schema){
  assert.throws(()=>parseYaml('a: 1\na: 2'));assert.throws(()=>parseYaml('a: &anchor 1'));assert.throws(()=>parseYaml('a: [1, 2]'));
  return {fixtures:count,parserChecks:4,status:'pass'};
 }
-module.exports={parseYaml,schemaValidate,validateState,loadRegistry,fixtureChecks};
+module.exports={parseYaml,schemaValidate,validateState,loadRegistry,fixtureChecks,conversationStateFile,selectConversationState,validateConversationState};
 if(require.main===module){try{
  const args=process.argv.slice(2),arg=(key,fallback)=>{const i=args.indexOf(key);return i<0?fallback:args[i+1];};
  const schema=JSON.parse(read(arg('--schema',path.join(__dirname,'../schemas/plan-state.schema.json'))));
- const result=args.includes('--fixtures')?fixtureChecks(arg('--fixtures'),schema):(()=>{const project=path.resolve(arg('--project',process.cwd())),state=parseYaml(read(path.join(project,'.atena/state/plan.yaml')));return validateState(state,loadRegistry(project,state.active_plan),schema);})();
+ const result=args.includes('--fixtures')?fixtureChecks(arg('--fixtures'),schema):(()=>{const project=path.resolve(arg('--project',process.cwd())),selected=selectConversationState(project,arg('--conversation'));return validateConversationState(selected,loadRegistry(project,selected.state.active_plan),schema);})();
  console.log(JSON.stringify(result,null,2));if(args.includes('--require-executable')&&!result.executionReady)process.exitCode=2;
 }catch(e){console.error(e.message);process.exitCode=1;}}

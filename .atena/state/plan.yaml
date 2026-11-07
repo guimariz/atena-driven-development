@@ -1,5 +1,40 @@
 version: 2
-active_plan: null
-plan_cursor: null
+
+active_plan:
+
+  id: "PLAN-010"
+
+  spec_id: "SPEC-010"
+
+  current_step: "S-007"
+
+  total_steps: 9
+
+  status: "ACTIVE"
+
+  approval:
+
+    mode: "per-plan"
+
+    checkpoint: "PLAN"
+
+    status: "APPROVED"
+
+plan_cursor:
+
+  current: "S-007 source inventory and remote intake"
+
+  next: "S-008 full user PDF extraction"
+
 suspension: null
-deferred_requests: []
+
+deferred_requests:
+
+  - id: "DEV-MIYAZAKI-001"
+
+    request: "Rename Toth to Miyazaki for game dev, game design and game implementation; prepare after closing Odin."
+
+    status: "IMPLEMENTED"
+
+
+

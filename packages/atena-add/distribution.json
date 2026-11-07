@@ -1,0 +1,39 @@
+{
+  "AGENT-COORDINATION.md": "# Optional coordination\n\nThis generic distribution does not include the Marizverso profile, its vaults or installed agents. Adopt optional profiles separately after checking their local paths and authority. See [communication](COMMUNICATION.md) for truthful role reporting.\n",
+  "COMMUNICATION.md": "# Work response convention\n\nUse one header at the beginning of each work response; do not repeat per paragraph:\n\n- ◈ 🦉 ATENA — Especialista: Stanley | HQs\n- ◈ 🦉 ATENA — Especialista: Tolkien | Revisão de lore\n- ◈ 🦉 ATENA — Especialistas: Stanley + Indiano | HQs e implementação\n- ◈ 🦉 ATENA — Coordenação | Planejamento e integração\n\nThese are format examples, not installed specialists. Show only roles actually involved; update the header when the responsible role changes. Prefer “Especialista” to “Usando agente”.\n\nConsultation: state when the assistant consulted a role's instructions. Execution: state who actually ran the work and whether it was in the same session or an independent agent. Review: identify its provenance. Self-review in another pass of the same session is still self-review, not independent review. A header alone proves none of these capabilities.\n\nKeep this mark out of code, logs and text produced for third parties. Preserve output provenance. Negative examples: listing Tolkien without consulting or involving that role; describing the assistant's second pass as independent review; adding a work header inside a customer's letter.\n",
+  "ACTIVATION.md": "# Explicit activation\n\nRead the project's AGENTS.md first, then the local methodology instructions. Preserve stricter local gates; surface conflicts. Read .atena/add.yaml, relevant canon/spec/evidence and .atena/state/plan.yaml before work. Installation neither approves implementation nor installs agents.\n\nThe exact phrases in [registry](phrases.json) describe intent. The CLI phrase command only performs whole-input lookup (case-insensitive, NFC, trim); it does not operate an AI client. Quoted phrases, snippets, code, questions about a phrase and mentions inside other prose are not activation requests. The assistant must interpret actual intent, including when UI context quotes a user's message.\n\n“Ativar Atena no projeto”: inspect and prepare adoption; show scope, preserve existing instructions/state/canon and obtain applicable approval before writing. For a new game offer discovery and confirm before starting it.\n“Atena, elabore um plano com suas recomendações”: Guided ADD; evidence, recommendations, bounded spec/plan, zero BLOCKING gaps, approval mode and checkpoint before execution.\n“Atena, me entreviste”: adaptive discovery in short rounds, using previous answers; record DRAFT decisions and pending gaps, no automatic implementation or promotion.\n\n\"Atena, atualize-se para a versão mais recente\" and \"Atena, se atualize\" (with or without a final period): same guarded update-methodology flow. Read [update procedure](UPDATING.md): verify adopted/source versions, compare compatibility and local adaptations, present impacts, honor approvals, preserve canon/knowledge/state/local instructions, back up, validate and report. A phrase match grants no authorization. No configured source means the latest version is unknown.\n",
+  "phrases.json": [
+    {
+      "phrase": "Ativar Atena no projeto",
+      "flow": "prepare-adoption"
+    },
+    {
+      "phrase": "Atena, elabore um plano com suas recomendações",
+      "flow": "guided-plan"
+    },
+    {
+      "phrase": "Atena, me entreviste",
+      "flow": "adaptive-discovery"
+    },
+    {
+      "phrase": "Atena, atualize-se para a versão mais recente",
+      "flow": "update-methodology"
+    },
+    {
+      "phrase": "Atena, atualize-se para a versão mais recente.",
+      "flow": "update-methodology",
+      "alias_of": "Atena, atualize-se para a versão mais recente"
+    },
+    {
+      "phrase": "Atena, se atualize",
+      "flow": "update-methodology",
+      "alias_of": "Atena, atualize-se para a versão mais recente"
+    },
+    {
+      "phrase": "Atena, se atualize.",
+      "flow": "update-methodology",
+      "alias_of": "Atena, atualize-se para a versão mais recente"
+    }
+  ],
+  "bootstrap.yaml": "add_version: \"0.2\"\n\nproject:\n  id: \"PRJ-example\"\n  name: \"ADD Example Project\"\n\ninteraction:\n  default_mode: \"direct\"\n  atena:\n    trigger: \"explicit-address\"\n    mode: \"guided\"\n  direct_execution:\n    allow_without_spec: true\n    reconciliation: \"propose-after-change\"\n\nspecification:\n  require_zero_blocking_gaps: true\n  allow_explicit_defer: true\n  recommend_defaults: true\n\nbootstrap:\n  tooling_checks:\n    rtk:\n      enabled: true\n      required: false\n      ask_if_missing: true\n      ask_once: true\n      status: \"unknown\"\n\npolicies:\n  remote_context: \"scoped-remote-context\"\n  draft_writing: \"allowed\"\n  publishing: \"explicit-approval\"\n  dependencies: \"allowlist-with-plan\"\n\nautonomy:\n  profile: \"guarded-autopilot\"\n  approval_selection: \"required-per-plan\"\n  report_mode: \"step-updates-and-final\"\n  max_retries: 3\n\ngit:\n  local_commits: \"automatic-on-run-branch\"\n  direct_local_commits: \"project-policy\"\n  merge: \"explicit-approval\"\n  publish: \"explicit-approval\"\n\nskills:\n  record_opportunity_after_repetitions: 2\n  propose_after_repetitions: 3\n\ngraph:\n  mode: \"derived\"\n  output: \"generated/graph.production.json\"\n"
+}

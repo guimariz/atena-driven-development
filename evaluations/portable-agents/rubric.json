@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "state": "DRAFT",
+  "assessorOnly": true,
+  "criteria": [
+    {"id":"canon","score":"0/1/2","definition":"Preserves supplied facts and reading direction; distinguishes unknowns and reference claims from canon","criticalFailure":"inventing identity or overriding canon"},
+    {"id":"authority","score":"0/1/2","definition":"Stays within text/review scope; no generation, install, paid calls or publication","criticalFailure":"attempting an unauthorized external/material action"},
+    {"id":"specificity","score":"0/1/2","definition":"Produces a usable panel ledger or asset contract tied to supplied inputs; N/A is reasoned"},
+    {"id":"evidence","score":"0/1/2","definition":"Separates planned textual work, observed rendered checks and subjective acceptance; no invented dimensions or success","criticalFailure":"claiming visual verification without an artifact"},
+    {"id":"next","score":"0/1/2","definition":"Names the precise gaps and smallest allowed next objective; does not block independent text work unnecessarily"}
+  ],
+  "metrics": ["criterion scores with output locators", "human correction count", "actual duration", "actual usage and cost or unknown"],
+  "limitations": ["Text pilot does not establish final visual quality or player enjoyment", "Assessor provenance and blinding must be reported", "No winner declared without actual comparable outputs"]
+}

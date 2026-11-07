@@ -1,4 +1,4 @@
-# Atena ADD portable 0.4.0 — local candidate
+# Atena ADD portable 0.5.0 — local candidate
 
 Requires Node >=20. No runtime dependencies, install hooks, network access or global setup. The CLI adopts files in an existing project; it does not install an AI client, agent runtime, Node, npm or optional tools.
 
@@ -12,6 +12,7 @@ node <output>/bin/atena-add.cjs update <test-project> --source <reviewed-local-p
 node <output>/bin/atena-add.cjs repair <test-project> --source <exact-installed-package>
 node <output>/bin/atena-add.cjs status <test-project> --details
 node <output>/bin/atena-add.cjs status <test-project> --json
+node <output>/bin/atena-add.cjs agents <test-project> --json
 node <output>/bin/atena-add.cjs doctor <test-project> --adapter dot-cloud --json
 node <output>/bin/atena-add.cjs recover <test-project>
 ```
@@ -26,6 +27,10 @@ Writes use an exclusive project lock, a backup under `.atena/install-backups/`, 
 
 For runtime diagnostics, `--adapter codex|dot-local|dot-cloud|generic` selects a capability contract. An optional `--observation <file>` must contain schema 1, adapter, exact absolute project path, observedAt, evidence and capabilities mapping names to observed/unavailable/unknown. This is operator-reported evidence, not authentication, authorization or automatic client registration. Unknown capabilities stay unknown. Files copied locally do not prove a cloud session loaded them.
 
-Identity is in `payload/identity/manifest.json`; adapter contracts in `payload/adapters/`. Generic packaging excludes personal profiles, vaults, credentials and chat approvals. Stanley/Prometeus source revisions remain optional local DRAFT roles. The optional [procedural adapter](PROCEDURAL.md) adds static inspection, output contracts and prepared DRAFT pilots. It has no engine runner. Each setup/program/recipe invocation requires specific confirmation; no NoctAssetForge software, runtime, templates, viewer or vendor instructions are embedded. Distribution 0.3.0 r3 remains a separate preserved candidate.
+Identity is in `payload/identity/manifest.json`; adapter contracts in `payload/adapters/`. Generic packaging excludes personal profiles, vaults, credentials and chat approvals. The [native agent library](agents/README.md), DRAFT r1 with authorized implementation, is bundled by default: Atena, Indiano, Odin, Miyazaki, Prometeus, Stanley, Zeus and Tolkien. Briefs and procedures are generic and self-contained; no personal Marizverso profile is needed. The optional [procedural adapter](PROCEDURAL.md) adds static inspection, output contracts and prepared DRAFT pilots. It has no engine runner. Each setup/program/recipe invocation requires specific confirmation; no NoctAssetForge software, runtime, templates, viewer or vendor instructions are embedded. Earlier distributions remain preserved.
+
+New installations receive all eight role procedures and an explicit AGENTS.md bridge to the catalog. Existing installations receive them only through an approved `update --source <reviewed-0.5.0-package> --apply`; older snapshots, local instructions, canon, knowledge and conversation state are preserved. `agents` and `status` inspect the installed version, not the selected candidate: an old 0.4.0 install reports `not-bundled` even while a 0.5.0 update is available. An unhealthy snapshot reports `conflict` rather than a healthy role library. `doctor` includes the same role availability. All diagnostics are read-only.
+
+To use a role, ask Atena for its domain or name the specialist. The assistant reads that role's procedure on demand and can execute it sequentially; installation does not launch eight independent processes. Independent delegation requires actual client support and authorization. Client recognition stays `unverified` until observed in that environment. The package is portable to supported Node environments, but tests in local fixtures do not prove adoption on another PC, OS, account or cloud client. Transfer the reviewed package rather than a maintainer workspace; there is no automatic memory synchronization.
 
 The [artifact lifecycle](CLEANUP.md) adds `cleanup inventory|preview|quarantine|restore|canon-check|canon-copy`. It requires explicit reviewed candidates and hashes, protects originals/CANON/current builds, and uses recoverable quarantine rather than permanent deletion. No real project cleanup is activated by installation.

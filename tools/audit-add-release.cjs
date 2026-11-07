@@ -1,0 +1,18 @@
+'use strict';
+// Reports rule + location only. Never print matched credential values.
+const fs=require('node:fs'),p=require('node:path'),cp=require('node:child_process');
+const {selected,hash}=require('./prepare-add-release.cjs'),root=p.resolve(__dirname,'..');
+const rules=[['private-key',/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],['github-token',/\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})\b/],['api-token',/\bsk-(?:proj-)?[A-Za-z0-9_-]{32,}\b/],['aws-key',/\b(?:AKIA|ASIA)[A-Z0-9]{16}\b/]];
+const local=/[A-Z]:[\\/](?:Users|dev|CodexHome)[\\/]/gi;
+function git(args,extra={}){const r=cp.spawnSync('git',args,{cwd:root,maxBuffer:64*1024*1024,...extra});if(r.error||r.status!==0)throw Error('Git inspection failed');return r.stdout;}
+function scan(bytes,location,findings,localPaths){if(bytes.includes(0))return false;const text=bytes.toString('utf8');for(const [rule,re]of rules)if(re.test(text))findings.push({rule,location});const matches=text.match(local);if(matches)localPaths.push({location,count:matches.length});return true;}
+const output=process.argv[2];if(!output)throw Error('Usage: node tools/audit-add-release.cjs <local-json-report>');
+const list=selected(),findings=[],localPaths=[],sourceInventory=[];
+for(const rel of list){const b=fs.readFileSync(p.join(root,rel));scan(b,'worktree:'+rel,findings,localPaths);sourceInventory.push({path:rel,bytes:b.length,sha256:hash(b)});}
+// HEAD ancestry is what a new descendant commit would send. Auxiliary Codex refs are not publication refs.
+const objectLines=git(['rev-list','--objects','HEAD']).toString('utf8').trim().split('\n'),names=new Map(objectLines.map(line=>{const i=line.indexOf(' ');return [i<0?line:line.slice(0,i),i<0?'':line.slice(i+1)];}));
+const data=git(['cat-file','--batch'],{input:[...names.keys()].join('\n')+'\n'});let at=0,blobs=0,binary=0;
+while(at<data.length){const end=data.indexOf(10,at),header=data.subarray(at,end).toString('utf8').split(' '),size=Number(header[2]);if(!Number.isFinite(size))throw Error('Invalid object record');const b=data.subarray(end+1,end+1+size);at=end+1+size+1;if(header[1]!=='blob')continue;blobs++;if(!scan(b,'history:'+header[0]+':'+names.get(header[0]),findings,localPaths))binary++;}
+const tracked=git(['ls-files']).toString('utf8').trim().split('\n');
+const report={date:'2026-10-27',status:findings.length?'review-required':'no-credential-pattern-findings',baseCommit:git(['rev-parse','HEAD']).toString().trim(),selectedFiles:list.length,history:{scope:'HEAD ancestry only; no auxiliary refs, remote queries or unreachable objects',commits:Number(git(['rev-list','--count','HEAD']).toString()),blobs,binaryNotInspected:binary,legacyWorkspaceTracked:tracked.filter(f=>f.startsWith('.atena/')).length},findings,localPaths,sourceInventory,excludedNewContent:['maintainer .atena/','knowledge/','output/','tmp/','dist/','maintainer AGENTS.md','personal optional profile','generated payload 0.2.0','presentations/'],limits:['Pattern scan is not a complete privacy/credential proof','Existing tracked history includes historical .atena records and binary presentations; no history rewriting performed','No external source rights or current remote state independently verified','Publication gate requires concrete inventory, visibility and asset approval']};
+const dest=p.resolve(root,output),rel=p.relative(root,dest);if(!rel||rel.startsWith('..')||p.isAbsolute(rel))throw Error('Report must be inside workspace');fs.mkdirSync(p.dirname(dest),{recursive:true});fs.writeFileSync(dest,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,selectedFiles:list.length,history:report.history,credentialFindings:findings.length,localPathLocations:localPaths.length,report:dest},null,2));

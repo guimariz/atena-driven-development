@@ -23,7 +23,7 @@ A mention of the word `Atena` as content does not by itself activate Guided ADD.
 7. **Plan**: produce tasks, expected file/system changes, validation, evidence, limits, recovery approach, and stable batches where relevant.
 8. **Select approval mode**: ask the user to choose `per-plan`, `per-batch`, or `per-step`; a plan remains non-executable while the selection is `unconfigured`.
 9. **Approve the checkpoint**: present the complete plan of flight or the next defined batch/step according to the selected mode. Record the approved checkpoint and plan revision.
-10. **Activate the plan cursor**: create or update `.atena/state/plan.yaml` with the active plan, approval checkpoint, current step, next step, and an empty suspension before implementation begins.
+10. **Activate the plan cursor**: create or update this chat's `.atena/state/conversations/<key>/plan.yaml` with the conversation binding and active plan, approval checkpoint, current step, next step, and an empty suspension before implementation begins.
 11. **Execute autonomously**: perform only work inside the approved checkpoint under the selected autonomy profile; pause for the next checkpoint, a stop condition, or an always-approve action.
 12. **Verify**: collect test results, observations, changed files, visual evidence where applicable, and unresolved items.
 13. **Record evidence**: preserve enough evidence to demonstrate acceptance without relying on model confidence alone.
@@ -41,7 +41,7 @@ Vision, mechanics, lore, and visual direction stay in drafts until explicit appr
 
 ## Active-plan request handling
 
-Before executing a new request during an active plan, classify it under the plan-coordination contract.
+Before executing a new request, resolve the plan belonging to this same chat under the [conversation ownership contract](CONTRACT.md#conversation-ownership-and-persistent-state). Classify only against that plan. Plans from other chats and unbound legacy state do not trigger sequencing questions, suspension, deferral or cursor replacement here. Persist each conversation independently; preserve legacy state and coordinate actual shared-file/resource conflicts. Resume across chats only on explicit request with identified plan/checkpoint and coordinated handoff.
 
 ```text
 new request
@@ -142,3 +142,12 @@ A direct implementation may be operationally complete after validation, but it r
 Use the [visible progress contract](INTERACTION.md#visible-progress-and-prepared-continuation) throughout execution. Prepare each next step's objective, inputs, deliverable, checks and approval status before advancing. On the last step state that no planned steps remain and list truly deferred work separately. Persist state before advancing and reconcile evidence before clearing it.
 
 Always label the referenced content as DRAFT or CANON with its revision. A draft accepted for a bounded prototype is still DRAFT. A canon promotion requires explicit approval of content/revision; identify the promoted portion and leave the rest draft. Report approved intent, implemented behavior and verified evidence as separate facts. See [maturity rules](POLICIES.md#explicit-content-maturity).
+
+
+## Optional Marizverso coordination profile
+
+Use the [coordination guide](AGENT-COORDINATION.md) for needs-based routing, specialist briefs, knowledge curation and proportional documentation. Portable sources do not install a runtime. Generic ADD does not require this profile. Copying this template alone does not adopt referenced files: resolve paths during adoption. Existing gates remain effective.
+
+## Methodology update request
+
+Use [update procedure](UPDATING.md) for "Atena, atualize-se para a versão mais recente" and "Atena, se atualize" (with or without a final period). Both express the same update-methodology flow. Quotation, code and discussion are not activation. Inspect the actual adopted version and configured authoritative source; compare local adaptations and scope; apply only valid approvals with backup/validation. Preserve canon, knowledge, state and local rules. Missing source/version blocks an actual update, not an invitation to invent a release. An active plan still requires request classification and sequencing.

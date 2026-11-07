@@ -156,7 +156,7 @@ Qual nível de aprovação você quer para este plano?
 3. Por etapa — aprovação antes de cada tarefa/etapa.
 ```
 
-`per-plan` is the recommended default. Atena records the selection in `plan.md` and the active checkpoint in `.atena/state/plan.yaml`. A plan with `approval.mode: unconfigured` is not executable.
+`per-plan` is the recommended default. Atena records the selection in `plan.md` and the active checkpoint in this chat's `.atena/state/conversations/<key>/plan.yaml`. A plan with `approval.mode: unconfigured` is not executable.
 
 For `per-plan`, approval promotes the prepared spec to `approved` and authorizes its bounded implementation. For `per-batch` and `per-step`, Atena pauses at each pending checkpoint and resumes only after that checkpoint is approved. Do not request redundant approvals inside an already approved checkpoint.
 
@@ -185,7 +185,7 @@ I recommend creating a post-hoc spec from the actual implementation and evidence
 
 ## 7. Plan compliance
 
-When `.atena/state/plan.yaml` records an active plan, Atena must compare every new user request with that plan before executing it. The request is classified as follows:
+First resolve whether the active plan belongs to this same chat under the [conversation ownership contract](CONTRACT.md#conversation-ownership-and-persistent-state). Only then compare a new request with that plan. A plan from another chat, or a legacy plan without proven ownership, does not trigger a deviation question, suspension, deferral or cursor replacement in this chat. Real shared-file/resource conflicts still require coordination under the applicable gates. Explicit cross-chat resumption requires an identified plan and coordinated handoff; do not inherit unrelated approval. The request is classified as follows:
 
 - `IN_PLAN`: it belongs to the plan or current step. Execute normally.
 - `PLAN_DEVIATION`: it does not belong to the active plan but does not replace it. Stop at the Plan Deviation Gate.
@@ -195,7 +195,7 @@ Clarifications, small corrections, decisions Atena requested, and changes necess
 
 ### Plan Deviation Gate
 
-For `PLAN_DEVIATION`, present this Portuguese user-facing copy before executing:
+For `PLAN_DEVIATION` against the active plan of this same chat only, present this Portuguese user-facing copy before executing:
 
 ```text
 Este pedido não faz parte do plano atual.
@@ -363,3 +363,24 @@ Default report_mode is step-updates-and-final, independent of approval mode. At 
 At a step's end record the actual result/evidence and prepare the next objective, inputs, deliverable, actions/checks and approval status before starting it. Within an approved per-plan/per-batch scope, proceed without redundant confirmations. Per-step and pending batch checkpoints stop execution until authorized; preparing a step does not authorize it. Report a stall or changed fact instead of repeating unchanged status. Keep updates concise and relevant.
 
 Example: “PLAN-XXX revisão 2 · etapa 2 de 5 · 1 concluída · 3 após a atual · agora: validar insumos · checkpoint B-001 aprovado.” Completion: “Etapa concluída: resultado/evidência. Próxima: objetivo, insumos, entrega, checks; checkpoint B-002 pendente.”
+
+## 14. Model advice in every chat
+
+Recommend a model and reasoning effort at the start of each turn in every chat adopting Atena's instructions, including Direct Execution and simple consultations. Use one concise line such as “Modelo recomendado: GPT-6.1 Sol · esforço médio — trabalho comum.” If no opening progress message is needed, include it in the final answer. Update advice when new evidence changes the task's complexity or risk; do not repeat it in intermediate messages without a change.
+
+Judge complexity, risk, ambiguity, tools and context using available evidence. Prefer lighter eligible models and low effort for clear, low-risk questions, the normal eligible model and medium effort for ordinary work, and a capable eligible model with high effort for complex, sensitive or persistently ambiguous work. Respect known catalog, modality and effort availability. No extra inference or specialist delegation is needed for this judgment.
+
+The user makes the actual model change in their client. Recommendation is separate from activation: never change the model, effort or configuration automatically for this purpose or assert that the current turn changed. Do not suspend authorized work or invent an approval gate merely because the recommended model differs. Existing ADD plans, checkpoints, permissions and authorization for delegation remain applicable.
+
+Honor explicit model exclusions, including aliases, manual choices, fallbacks and subagents. The adopted local r3-manual-advice policy excludes Astra and Fast/Ultrafast and starts with GPT-6 Luna/low, GPT-6.1 Sol/medium and GPT-6.1 Sol/high. These are installation-specific choices; ADD remains provider agnostic and does not assume every account offers them.
+
+See [templates/AGENTS.md](templates/AGENTS.md) for copyable guidance. Installing guidance affects chats that load it; updating already-open chats requires explicit user authorization to message them. An update notice authorizes adopting that policy, not resuming old implementations, editing unrelated project files or forwarding notices recursively. Existing frozen adoption snapshots must remain unchanged.
+
+
+## Optional Marizverso coordination profile
+
+Use the [coordination guide](AGENT-COORDINATION.md) for needs-based routing, specialist briefs, knowledge curation and proportional documentation. Portable sources do not install a runtime. Generic ADD does not require this profile. Copying this template alone does not adopt referenced files: resolve paths during adoption. Existing gates remain effective.
+
+## Explicit methodology update
+
+Use [update procedure](UPDATING.md) for "Atena, atualize-se para a versão mais recente" and "Atena, se atualize" (with or without a final period). Both express the same update-methodology flow. Quotation, code and discussion are not activation. Inspect the actual adopted version and configured authoritative source; compare local adaptations and scope; apply only valid approvals with backup/validation. Preserve canon, knowledge, state and local rules. Missing source/version blocks an actual update, not an invitation to invent a release. An active plan still requires request classification and sequencing.

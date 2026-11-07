@@ -34,7 +34,7 @@ What existing project capabilities will be reused before creating new ones?
 1. `S-001` — <step and reason>
 2. `S-002` — <step and reason>
 
-Active planned work records its current and next stable step in `.atena/state/plan.yaml`. A post-hoc plan is never activated as an execution plan.
+Active planned work records its current and next stable step in this chat's `.atena/state/conversations/<key>/plan.yaml`, with a truthful conversation binding. `.atena/state/plan.yaml` is readable legacy state, not a global sequencing lock. A post-hoc plan is never activated as an execution plan.
 
 ## Approval checkpoints
 

@@ -20,9 +20,11 @@
 
 `atena/` is a legacy v0.1 path. A v0.2 validator should detect it and report a migration requirement rather than silently treating both directories as canonical.
 
-`state/plan.yaml` is persistent local operational state. It is required even when no plan is active, in which case its plan, cursor, and suspension values are `null` and its deferred-request list is empty. It is not a canonical-vault record and must not be used to rewrite intent or approval history.
+`state/conversations/<key>/plan.yaml` is persistent local operational state per chat; `state/plan.yaml` remains a readable legacy record. It is required even when no plan is active, in which case its plan, cursor, and suspension values are `null` and its deferred-request list is empty. It is not a canonical-vault record and must not be used to rewrite intent or approval history.
 
 ## Agent activation
+
+Distribution 0.5.0 includes eight standard portable role procedures: Atena, Indiano, Odin, Miyazaki, Prometeus, Stanley, Zeus and Tolkien. Its project instruction bridge loads the native catalog on demand. See [native library and adoption](NATIVE-AGENTS.md). This changes distribution contents, not workspace contract 0.2. Older adoptions require an explicit update; personal profiles/knowledge remain separate. Role availability is distinct from client recognition and independently executing agents. This is the implemented distribution procedure (DRAFT r1), not automatic canonical promotion in an adopting project.
 
 The portable workspace defines ADD state and records; it does not by itself inject behavior into an AI client. A project that wants Atena behavior must load project instructions through its root `AGENTS.md`. [`templates/AGENTS.md`](templates/AGENTS.md) is the copyable default: it activates Guided ADD, plan compliance, per-plan approval selection, and Atena Voice without replacing project-specific rules.
 
@@ -168,7 +170,7 @@ Each satisfied checkpoint records its scope, approver, time, and plan revision. 
 
 ## Plan coordination contract
 
-Every planned `plan.md` activated under this contract has a stable `PLAN-XXX` identifier and stable execution-step identifiers such as `S-001`. While implementation is active, `.atena/state/plan.yaml` is the authoritative operational return point. Its required shape is:
+Every planned `plan.md` activated under this contract has a stable `PLAN-XXX` identifier and stable execution-step identifiers such as `S-001`. While implementation is active, the owning conversation's persistent state is the authoritative operational return point. The legacy record remains readable. The base shape is:
 
 ```yaml
 version: 2
@@ -199,13 +201,34 @@ The normative machine-readable shape is [`schemas/plan-state.schema.json`](schem
 - duplicate deferred-request IDs;
 - an unknown plan, spec, request, or step reference.
 
-Before executing a new user request while `active_plan.status` is `ACTIVE`, Atena must classify it:
+Before executing a new user request while this same chat's `active_plan.status` is `ACTIVE`, Atena must classify it:
 
 - `IN_PLAN` — execute normally. Clarifications, small corrections, decisions requested by Atena, and changes necessary to complete the current step are `IN_PLAN`.
 - `PLAN_DEVIATION` — do not execute until the Plan Deviation Gate records the user's route.
 - `PLAN_CHANGE_REQUEST` — analyze impact on scope, decisions, steps, acceptance criteria, evidence, and recovery before replacing the active plan. The prior approval does not authorize the replacement.
 
 For route A of a Plan Deviation Gate, persist `suspension` and its saved cursor and set `active_plan.status` to `SUSPENDED` before the parallel execution. Restore that cursor, return the status to `ACTIVE`, and clear `suspension` after the parallel work completes. For route B, append a `DEV-XXX` record with `status: PENDING` to `deferred_requests`; do not silently execute it later. Mandatory safety and approval gates still apply to either route.
+
+### Conversation ownership and persistent state
+
+The sequencing gate is scoped to the **same chat**, not the project or workspace. Resolve ownership before classifying a request. A plan in another chat does not prompt "do it now or after the plan", and must not be suspended, replaced or receive this chat's deferred requests. Actual conflicts over files/resources and mandatory approval gates remain applicable across chats.
+
+Each conversation stores the existing version-2 shape in `.atena/state/conversations/<key>/plan.yaml`, with this additional root mapping:
+
+```yaml
+conversation:
+  key: "local-example-chat"
+  kind: "local"
+  evidence: "Explicit plan approval in this conversation; local key, not a platform ID."
+```
+
+The key must match `^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$` and its directory. Use `kind: platform` only for an actual exposed identifier compatible with that format; otherwise use a stable local key and truthful evidence of the conversation/approval. Reuse the recorded key on continuation; do not generate a new key every turn. Do not ask users for technical identifiers routinely or invent platform IDs. The binding records evidence; its mere presence is not independent proof of authorization.
+
+Legacy `.atena/state/plan.yaml` remains readable and is never automatically assigned to the current chat or migrated. Without proven ownership, it cannot trigger a deviation gate or authorize execution here. Context from the current conversation can establish a local binding; ask for clarification only if explicitly resuming a plan is genuinely ambiguous. An explicit request to resume elsewhere must identify the source plan, confirm the scope/revision/checkpoint, and coordinate the handoff before copying a cursor; do not silently claim a plan still running elsewhere. A handoff does not grant new approval or automatically authorize a broader replacement.
+
+Write only the owning conversation's state. Suspensions/deferred requests are scoped to that file. Before writing shared artifacts, inspect real concurrent changes, preserve others' work, and resolve concrete conflicts under their applicable gates. Separate files prevent cursor replacement, not every possible resource conflict; no runtime scheduler or automatic cross-chat messaging is introduced.
+
+The read-only validator accepts `--conversation <key>` to select exactly one scoped state, verifies its binding, and never falls back to another chat or the legacy plan if the file is absent. Without this option it validates the legacy record but reports `binding: unscoped` and `executionReady: false`; `--require-executable` therefore requires a matched conversation and approved checkpoint. Low-level `validateState` and legacy fixtures check structural/approval validity only; callers deciding execution must use `validateConversationState` after selection. Validation cannot establish that an arbitrary key supplied by a caller really belongs to their chat.
 
 ## Post-hoc plan contract
 
@@ -221,7 +244,7 @@ For `origin: post-hoc`, `plan.md` is a reconstructed implementation map. It must
 - Every planned spec includes objective, scope, non-goals, acceptance criteria, impact, gap state, and validation.
 - Every executable planned spec has a plan-of-flight approval, evidence, and reconciliation result.
 - Every executable planned spec records an explicit per-plan, per-batch, or per-step approval mode.
-- Every active planned spec has valid state in `.atena/state/plan.yaml`.
+- Every active planned spec has valid state in its owning chat's `.atena/state/conversations/<key>/plan.yaml`.
 - A `PLAN_DEVIATION` has either a recorded suspension or a pending deferred request before execution continues.
 - A planned spec cannot be approved with unresolved `BLOCKING` gaps.
 - Every post-hoc spec preserves `origin: post-hoc` and `implementation_preceded_spec: true`.

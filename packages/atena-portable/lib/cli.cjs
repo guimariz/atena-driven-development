@@ -47,6 +47,7 @@ function source(dir=path.resolve(__dirname,'..')) {
   if(JSON.stringify(actual)!==JSON.stringify(expected))throw Error('Source inventory mismatch');
   for(const f of expected)if(!/^[a-f0-9]{64}$/.test(manifest.files[f])||sha(fs.readFileSync(path.join(payload,f)))!==manifest.files[f])throw Error('Source hash mismatch: '+f);
   for(const required of ['templates/AGENTS.md','ACTIVATION.md','bootstrap.yaml'])if(!expected.includes(required))throw Error('Source missing required file: '+required);
+  if(compare(meta.version,'0.5.0')>=0)require('./agents.cjs').catalog(payload,manifest,safeRel,noLinks);
   return {root,payload,meta,manifest,manifestHash:sha(JSON.stringify(manifest))};
 }
 function project(value) {
@@ -56,7 +57,11 @@ function project(value) {
   if(fs.existsSync(path.join(root,'atena')))throw Error('Legacy atena/ requires separate migration');
   return root;
 }
-function bridge(v) {return START+'\nRead .atena/methodology/'+v+'/templates/AGENTS.md and .atena/methodology/'+v+'/ACTIVATION.md before ADD work. Preserve project-specific instructions and stricter gates; report conflicts. This explicitly adopts the local methodology, not agents or tools.\n'+END;}
+function bridge(v) {
+  // Preserve the exact historical block for repair/upgrade ownership of older receipts.
+  const roles=compare(v,'0.5.0')>=0?' This adoption includes the eight native Atena roles: read .atena/methodology/'+v+'/agents/README.md and consult the relevant role procedure on demand. Roles run sequentially in the current assistant; no independent runtime or tools are installed.':' This explicitly adopts the local methodology, not agents or tools.';
+  return START+'\nRead .atena/methodology/'+v+'/templates/AGENTS.md and .atena/methodology/'+v+'/ACTIVATION.md before ADD work. Preserve project-specific instructions and stricter gates; report conflicts.'+roles+'\n'+END;
+}
 function block(text) {
   const starts=text.split(START).length-1,ends=text.split(END).length-1;
   if(starts!==ends||starts>1||starts&&text.indexOf(END)<text.indexOf(START))throw Error('Malformed ADD instruction block');
@@ -212,21 +217,22 @@ function runtime(root,candidate,adapter='generic',observationFile) {
 function status(root,candidate,options={}) {
   const current=inspect(root),operation=state(root),installed=current.receipt?.version??null;
   const available=installed?compare(candidate.meta.version,installed)>0:null;
-  const result={action:'status',installedVersion:installed,integrity:current.issues.length?'conflict':installed?'verified':'not-installed',updateAvailable:available,candidateVersion:candidate.meta.version,latestVersion:'unknown',operation};
-  if(options.details)Object.assign(result,{project:root,source:{kind:'local-package',manifestHash:candidate.manifestHash},receipt:current.receipt,issues:current.issues,runtime:runtime(root,candidate,options.adapter,options.observation),profiles:'Not included in generic distribution; portable sources require separate adoption',procedural:'Optional static inspection/output contracts and prepared pilots; no engine runner or verified engine installation; every setup/execution needs specific confirmation',identity:json(path.join(__dirname,'../payload/identity/manifest.json'))});
+  const nativeAgents=require('./agents.cjs').describe(root,current,safeRel,noLinks);
+  const result={action:'status',installedVersion:installed,integrity:current.issues.length||nativeAgents.availability==='conflict'?'conflict':installed?'verified':'not-installed',updateAvailable:available,candidateVersion:candidate.meta.version,latestVersion:'unknown',operation,nativeAgents};
+  if(options.details)Object.assign(result,{project:root,source:{kind:'local-package',manifestHash:candidate.manifestHash},receipt:current.receipt,issues:current.issues,runtime:runtime(root,candidate,options.adapter,options.observation),profiles:'Eight standard native roles are bundled from 0.5.0; personal profiles/knowledge are separate and not included',procedural:'Optional static inspection/output contracts and prepared pilots; no engine runner or verified engine installation; every setup/execution needs specific confirmation',identity:json(path.join(__dirname,'../payload/identity/manifest.json'))});
   return result;
 }
 function doctor(root,candidate,options={}) {
   const s=status(root,candidate,{...options,details:true});
-  return {action:'doctor',ok:Number(process.versions.node.split('.')[0])>=20&&s.integrity!=='conflict'&&!s.operation.pending&&!s.operation.locked,checks:{node:{actual:process.versions.node,required:'>=20'},payload:'verified',projectIntegrity:s.integrity,operation:s.operation},runtime:s.runtime,dependencies:{core:[],optional:'Not installed or downloaded; select integration separately'},latestVersion:'unknown'};
+  return {action:'doctor',ok:Number(process.versions.node.split('.')[0])>=20&&s.integrity!=='conflict'&&!s.operation.pending&&!s.operation.locked,checks:{node:{actual:process.versions.node,required:'>=20'},payload:'verified',projectIntegrity:s.integrity,operation:s.operation},nativeAgents:s.nativeAgents,runtime:s.runtime,dependencies:{core:[],optional:'Not installed or downloaded; select integration separately'},latestVersion:'unknown'};
 }
 function main(args) {
   const [command,...rest]=args;
   if(command==='cleanup'){source();return require('./lifecycle.cjs').main(rest);}
   if(command==='procedural'){source();return require('./procedural.cjs').main(rest);}
-  if(!command||['help','--help'].includes(command))return {action:'help',version:pkg.version,commands:['install [project] [--source package-dir] [--apply]','update [project] [--source package-dir] [--apply]','repair [project] [--source exact-version-dir] [--apply]','status [project] [--source package-dir] [--details] [--json]','doctor [project] [--adapter generic|codex|dot-local|dot-cloud] [--observation file]','recover [project] [--apply]','preview <project>','adopt <project> --apply','phrase <exact phrase>','cleanup inventory|preview|quarantine|restore|canon-check|canon-copy <project> --manifest file','procedural inspect|verify|plan|pilots (static data only; no engine runner)'],limits:'No network or global/client/dependency installation. Preview is default; latest public release unknown.'};
+  if(!command||['help','--help'].includes(command))return {action:'help',version:pkg.version,commands:['install [project] [--source package-dir] [--apply]','update [project] [--source package-dir] [--apply]','repair [project] [--source exact-version-dir] [--apply]','status [project] [--source package-dir] [--details] [--json]','agents [project] [--source package-dir] [--json]','doctor [project] [--adapter generic|codex|dot-local|dot-cloud] [--observation file]','recover [project] [--apply]','preview <project>','adopt <project> --apply','phrase <exact phrase>','cleanup inventory|preview|quarantine|restore|canon-check|canon-copy <project> --manifest file','procedural inspect|verify|plan|pilots (static data only; no engine runner)'],limits:'No network or global/client/dependency installation. Preview is default; latest public release unknown.'};
   if(command==='phrase') {const s=source();return {match:json(path.join(s.payload,'phrases.json')).find(x=>x.phrase.normalize('NFC').toLocaleLowerCase('pt-BR')===rest.join(' ').normalize('NFC').trim().toLocaleLowerCase('pt-BR'))||null,grantsAuthorization:false};}
-  if(!['install','update','repair','status','doctor','recover','preview','adopt'].includes(command))throw Error('Unknown command');
+  if(!['install','update','repair','status','doctor','agents','recover','preview','adopt'].includes(command))throw Error('Unknown command');
   const options={details:false,apply:false},pos=[];
   for(let i=0;i<rest.length;i++) {
     const v=rest[i];
@@ -239,11 +245,12 @@ function main(args) {
   if((options.adapter||options.observation)&&!['status','doctor'].includes(command))throw Error('Runtime options are diagnostic only');
   if(options.observation&&!options.adapter)throw Error('--observation requires --adapter');
   if(options.adapter||options.observation)options.details=true;
-  if(options.details&&!['status','doctor'].includes(command))throw Error('--details is diagnostic only');
+  if(options.details&&!['status','doctor','agents'].includes(command))throw Error('--details is diagnostic only');
   if(command==='adopt'&&!options.apply)throw Error('adopt requires --apply');
   const root=project(pos[0]);
   if(command==='recover') {if(options.source)throw Error('recover does not accept a source');return recover(root,options.apply);}
   const candidate=source(options.source);
+  if(command==='agents'){const current=inspect(root);return {action:'agents',installedVersion:current.receipt?.version??null,...require('./agents.cjs').describe(root,current,safeRel,noLinks)};}
   if(command==='status')return status(root,candidate,options);
   if(command==='doctor')return doctor(root,candidate,options);
   const mode=command==='preview'||command==='adopt'?'install':command,a=plan(root,candidate,mode);
@@ -253,6 +260,6 @@ function format(result,args=[]) {
   if(args.includes('--json')||!['status','doctor'].includes(result.action)||args.includes('--details'))return JSON.stringify(result,null,2);
   const mark=args.includes('--ascii')?'[ATENA]':'◈ 🦉 ATENA';
   if(result.action==='doctor')return mark+' — doctor: '+(result.ok?'local checks passed':'attention required')+'; client unverified. Use --json for details.';
-  return mark+' — '+(result.installedVersion||'not installed')+' | '+result.integrity+' | '+(result.updateAvailable?'local update '+result.candidateVersion:'public latest unknown')+(result.operation.pending||result.operation.locked?' | operation pending':'')+'\nUse --details for source, runtime, identity and pending integrations.';
+  return mark+' — '+(result.installedVersion||'not installed')+' | '+result.integrity+' | native roles: '+result.nativeAgents.agents.length+' ('+result.nativeAgents.availability+') | '+(result.updateAvailable?'local update '+result.candidateVersion:'public latest unknown')+(result.operation.pending||result.operation.locked?' | operation pending':'')+'\nUse --details for source, runtime, identity and pending integrations.';
 }
 module.exports={main,format,source,inspect,plan,apply,status,doctor,recover,project,noLinks,safeRel,compare,lock,atomic};

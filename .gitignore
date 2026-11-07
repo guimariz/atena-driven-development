@@ -1,9 +1,22 @@
+# Local maintainer workspace: legacy tracked records remain tracked.
 /.atena/
 /knowledge/
-/tmp/
 /output/
-/node_modules/
+/tmp/
+/dist/
+/release-staging/
+/packages/atena-add/payload/
+/packages/atena-knowledge-media/
+/templates/automation/marizverso/
+/AGENT-COORDINATION.md
+/meu-primeiro-relatorio.json
+*.pre-*
+*.snapshot
+__pycache__/
+*.pyc
+node_modules/
 .env
 .env.*
+!.env.example
 *.pem
 *.key
