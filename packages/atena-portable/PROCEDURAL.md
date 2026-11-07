@@ -1,4 +1,4 @@
-# Optional procedural integration — DRAFT r1 / ADD distribution 0.4.0
+# Optional procedural integration — DRAFT r1 / ADD distribution 0.5.0
 
 This is author-owned ADD code, not a bundled engine. It reads bounded data and prepares plans; it has **no runner, install, import or execution command**. Each setup/program/recipe action from unrecognized software still needs specific confirmation after reviewing identity, exact command/cwd, dependencies/sources, network, effects, outputs and isolation. A plan or metadata flag is not permission. Do not run vendor doctor/tests/builds or import recipes as a diagnostic shortcut.
 

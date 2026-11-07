@@ -1,4 +1,4 @@
-# Atena Driven Development — portable CLI 0.4.0
+# Atena Driven Development — portable CLI 0.5.0
 
 > Nova candidata local: [Atena 0.5.0 com oito agentes nativos](NATIVE-AGENTS.md). A biblioteca padrão inclui Atena, Indiano, Odin, Miyazaki, Prometeus, Stanley, Zeus e Tolkien; projetos existentes precisam de atualização explícita. Não transporta conhecimento pessoal nem instala runtimes independentes.
 
