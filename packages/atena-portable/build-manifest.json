@@ -44,7 +44,7 @@
     },
     {
       "path": "payload/templates/AGENTS.md",
-      "sha256": "53d89c52210e44850b871a394106c49ae96f2b63291be6da5a3276bf87a6df3f"
+      "sha256": "61573caa33062dc6ed590adb62e4af1ea0706cdbc85bba411b58174367391557"
     },
     {
       "path": "payload/templates/spec/acceptance.md",
@@ -232,7 +232,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "e2756599508a5bc15b607b0baa0e80ac825b23ee5504165d0ae9f7a7d88a3440"
+      "sha256": "9f346b792091a1c0f59488cd1b0a045dbfdc239f4c5b0c219a77d953efbd660a"
     },
     {
       "path": "CLEANUP.md",
@@ -240,7 +240,7 @@
     },
     {
       "path": "PROCEDURAL.md",
-      "sha256": "be8d1d34c18afbf322f990aafc0278a49165f60bea4aa70ce1fc013bb0ca248a"
+      "sha256": "60366abf16abb44c61dfa9e01e5c00c932a5672d3186e396da634a12825beed9"
     },
     {
       "path": "bin/atena-add.cjs",
@@ -352,7 +352,7 @@
     },
     {
       "path": "payload/manifest.json",
-      "sha256": "a6eeaba068e1d1d9cbee507f7ac04975b737372a19cbc6ca0155e3a2b482b2a1"
+      "sha256": "0335021bdd7f0f8b976f065cf4f302fa74a0f679c077b4e1685efd41fa0dd618"
     }
   ],
   "excludes": [

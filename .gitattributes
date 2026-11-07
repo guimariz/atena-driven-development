@@ -1,0 +1,3 @@
+# Pacote portatil selado: os hashes dos manifestos valem para os bytes exatos (alguns arquivos
+# sao CRLF, outros LF). Nunca normalizar fim de linha aqui, independente de core.autocrlf.
+packages/atena-portable/** -text
