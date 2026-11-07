@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "kind": "local-candidate",
   "sourceFiles": [
     {
@@ -24,7 +24,11 @@
     },
     {
       "path": "payload/CONTRACT.md",
-      "sha256": "bc945469878c06af2de4be7d69cebbe5e33117f3bf5ceac180e9b541b808275d"
+      "sha256": "86a9df7c7ec56494005f8d1cec95a07fe01db26b2a1c7b60e295f473f7c7fb51"
+    },
+    {
+      "path": "payload/NATIVE-AGENTS.md",
+      "sha256": "2e0f9b8ef3c97cce23b2986160886323308a7a6dcb2334598fc4e400dd807604"
     },
     {
       "path": "payload/GAMES.md",
@@ -40,7 +44,7 @@
     },
     {
       "path": "payload/templates/AGENTS.md",
-      "sha256": "13001aa2ecb94dd0c8a446dc43347e6225ab27927f82c69e9c8d9b56304e9a4b"
+      "sha256": "53d89c52210e44850b871a394106c49ae96f2b63291be6da5a3276bf87a6df3f"
     },
     {
       "path": "payload/templates/spec/acceptance.md",
@@ -48,7 +52,7 @@
     },
     {
       "path": "payload/templates/spec/plan.md",
-      "sha256": "c479a75c91a760998e9c8d8d33bfe12cc1cece22b8a0be793b3965e7c42f78ec"
+      "sha256": "9d9b7e0989c19d4d3aef5ba08f858b04ce786ba4fe2c51c647442f95392646f9"
     },
     {
       "path": "payload/templates/spec/spec.md",
@@ -60,7 +64,7 @@
     },
     {
       "path": "payload/templates/state/plan.yaml",
-      "sha256": "198be573105594986c8728598aa9390eacb710cdca88445ed5427b365adf1e89"
+      "sha256": "2d7cef3df0db495b198a093ed0d85efe3ec3a1a967cc7e1ae4c217334d56ba24"
     },
     {
       "path": "payload/templates/vault/add.yaml",
@@ -208,11 +212,11 @@
     },
     {
       "path": "payload/schemas/plan-state.schema.json",
-      "sha256": "d9b3abfbbc1ee0a0f1b49a35185045b01ea8fa8bfb057265df3d873a77b8449e"
+      "sha256": "a90297dc30e7a4f879f472290362879bd955240719d4388193d00fd829b13ec0"
     },
     {
       "path": "payload/tools/validate-add-state.cjs",
-      "sha256": "9bcd064b68c93ce57a7f2e8d95e96220389d218aebb5f2ea9caa8aedac55ae04"
+      "sha256": "e5e02c09717c4fdb3a7c466a921448d3e5071b7d24e883b757d7d840ea0bb761"
     },
     {
       "path": "payload/tools/validate-game-specialists.cjs",
@@ -224,11 +228,11 @@
     },
     {
       "path": "package.json",
-      "sha256": "6c725b9a43dfdcf70b82dcf8c6c375a995ecc97176fd822254d37fece3bdf111"
+      "sha256": "38c613b6be683cc11a6afb69fc58c6112bac94d4a66584d0b162e1b91f13b487"
     },
     {
       "path": "README.md",
-      "sha256": "54970a01c98976ea8f602a03f7ee000ed1d928bc40e0b3c66851139000bc1764"
+      "sha256": "e2756599508a5bc15b607b0baa0e80ac825b23ee5504165d0ae9f7a7d88a3440"
     },
     {
       "path": "CLEANUP.md",
@@ -243,8 +247,12 @@
       "sha256": "659c7f7141c8ac9eabe8289e6e1d574327299e90f027846afc777175565c7bf9"
     },
     {
+      "path": "lib/agents.cjs",
+      "sha256": "1456f9247a07fbaf770f78bb7691d1ea38fc4b1be15352da665a492cc3620bee"
+    },
+    {
       "path": "lib/cli.cjs",
-      "sha256": "545ef03f48b96b02814c6f5979c2db9fea8f89984b0247337105c851189991ea"
+      "sha256": "2ee27468cb82baa66d6600d2e2884ffe1d18a69a9cabe08d6568672c3b690409"
     },
     {
       "path": "lib/lifecycle.cjs",
@@ -256,27 +264,75 @@
     },
     {
       "path": "payload/identity/manifest.json",
-      "sha256": "2d4d1a32a5e494f39b1154b41abaffd8ba678d926725f548a84d91bde112b238"
+      "sha256": "c6dc25939897609f4dad4685fe85faaa8da2e533f00b2934d150d67b58a73005"
     },
     {
       "path": "payload/adapters/CONTRACT.md",
-      "sha256": "16e87eeb443648a21e083e6e133f44de4a138f6e26707fd566ff767c274edf6f"
+      "sha256": "29d58e5cd4cdaee4b4f99cda5cd5025efc2cb8e7886d4995aba6a79228527eb1"
     },
     {
       "path": "payload/adapters/catalog.json",
-      "sha256": "907fdf8a905d056f045d7e2716cf093ea92a19e685d25619aa9d38d2739b7f13"
+      "sha256": "9a6861b1a139058545e03c6ae61dee1bd819a5439c852dad72c265035be8c8cb"
     },
     {
       "path": "payload/procedural/pilots.json",
-      "sha256": "bc4f7fce19410fa6aadfea5098c07cca1cfc82ad78769678fa189624db9df798"
+      "sha256": "ab758a52135c5fac39429e7408b919323e441f42c88dc8d2c5f5231b844a841a"
     },
     {
       "path": "payload/procedural/tools.json",
-      "sha256": "dd827a8f38389ffb7aa8f55dc0f0a03db688054507d20ec5191ae3a17f021752"
+      "sha256": "e10ce08ce02337b2af8e3de8cac5bfa6cd82e6bf3f86a4510786863651f8f1a4"
+    },
+    {
+      "path": "payload/agents/CONTRACT.md",
+      "sha256": "f8b4295eb4a5efbaf8e09a811a8962603cd133d12368db6a94017bf05fb28556"
+    },
+    {
+      "path": "payload/agents/README.md",
+      "sha256": "4910d635777186ad8bb0a2b73d7c0fecb69dc738616dae1c948725111be5486e"
+    },
+    {
+      "path": "payload/agents/animation.md",
+      "sha256": "86b497a0effd742f1646b97d7d95e1b83ebe3dbb6f79c1616332294e7d3a78a2"
+    },
+    {
+      "path": "payload/agents/atena.md",
+      "sha256": "a3a2445c2b7f20c6ab038f349ba8088c88c70a527ae082b9954ba6a31cdfc3d1"
+    },
+    {
+      "path": "payload/agents/catalog.json",
+      "sha256": "11e3f8b33e104c0aebf6664893849486c4872b77868f8f9172606b014413109d"
+    },
+    {
+      "path": "payload/agents/indiano.md",
+      "sha256": "b9193b892ecd042d66df6792760b9b8090ad179b88db962e872e87ec46af8a52"
+    },
+    {
+      "path": "payload/agents/miyazaki.md",
+      "sha256": "2e261d85c40e2daef73a66edc5c333e28b5ecb40100efa65c163034796f280d3"
+    },
+    {
+      "path": "payload/agents/odin.md",
+      "sha256": "d86d902609e900d448ac27f1560469ba3b1ee7161f5642e9031219de1b6d66c2"
+    },
+    {
+      "path": "payload/agents/prometeus.md",
+      "sha256": "37bd77dfdb9ad5d5827eec863178e76f4d4a5b7f641f5288a2d808430a52b734"
+    },
+    {
+      "path": "payload/agents/stanley.md",
+      "sha256": "8dc66c37d3dc28dfcb8800f8860fd240d42f360cc9d1f4f43ee1bf0f175ee0ea"
+    },
+    {
+      "path": "payload/agents/tolkien.md",
+      "sha256": "197ace4f6f2fb691c0510c7b62ad6e53e9cf0f5dda4ffb2e793ff2b966173fb1"
+    },
+    {
+      "path": "payload/agents/zeus.md",
+      "sha256": "29e2aabf588a462cd8bfd9f458d03432763d7bfd64c4314279050949948d97a1"
     },
     {
       "path": "payload/AGENT-COORDINATION.md",
-      "sha256": "6a7566dacacbd343f270ecd85056a899e708b0a06563e96b7a0bbac2a327268b"
+      "sha256": "afbb93c5458725c5d55a28294147da57f4b021ef16a6a194f9a40f674df0dbb4"
     },
     {
       "path": "payload/COMMUNICATION.md",
@@ -284,7 +340,7 @@
     },
     {
       "path": "payload/ACTIVATION.md",
-      "sha256": "32531480826ad3a4caca7857f974e0a1ac8b4a67a14921821b7f50db478445ad"
+      "sha256": "48c5ea2761cde219e53693cd468c8d6ff3ce630d0c3e598672de4caf8a1cafb1"
     },
     {
       "path": "payload/phrases.json",
@@ -296,7 +352,7 @@
     },
     {
       "path": "payload/manifest.json",
-      "sha256": "afc59ae10761e199d6c37c5411cfa462f0073fd243eede313123bc48d27539ed"
+      "sha256": "a6eeaba068e1d1d9cbee507f7ac04975b737372a19cbc6ca0155e3a2b482b2a1"
     }
   ],
   "excludes": [

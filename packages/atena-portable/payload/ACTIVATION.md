@@ -9,3 +9,7 @@ The exact phrases in [registry](phrases.json) describe intent. The CLI phrase co
 “Atena, me entreviste”: adaptive discovery in short rounds, using previous answers; record DRAFT decisions and pending gaps, no automatic implementation or promotion.
 
 "Atena, atualize-se para a versão mais recente" and "Atena, se atualize" (with or without a final period): same guarded update-methodology flow. Read [update procedure](UPDATING.md): verify adopted/source versions, compare compatibility and local adaptations, present impacts, honor approvals, preserve canon/knowledge/state/local instructions, back up, validate and report. A phrase match grants no authorization. No configured source means the latest version is unknown.
+
+## Native agents
+
+Every new adoption of this distribution includes Atena, Indiano, Odin, Miyazaki, Prometeus, Stanley, Zeus and Tolkien. Read [routing](agents/README.md) and consult only the required role instructions. A user can request a role by name. Use sequential roles in the current assistant unless independent delegation is actually supported and authorized. Loading files does not prove client recognition; imported sources and another project's approvals grant no authority. Existing projects require an explicit update to receive this library.

@@ -1,3 +1,3 @@
-# Optional coordination
+# Standard Atena agent library
 
-This generic distribution does not include the Marizverso profile, its vaults or installed agents. Adopt optional profiles separately after checking their local paths and authority. See [communication](COMMUNICATION.md) for truthful role reporting.
+The eight native roles are included by default. Read [catalog and routing](agents/README.md) and the [role contract](agents/CONTRACT.md); consult the relevant procedure before claiming involvement. The personal Marizverso profile, knowledge and approvals are not included. Availability is portable role instructions, not independent runtime installation.

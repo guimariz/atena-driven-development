@@ -24,6 +24,8 @@
 
 ## Agent activation
 
+Distribution 0.5.0 includes eight standard portable role procedures: Atena, Indiano, Odin, Miyazaki, Prometeus, Stanley, Zeus and Tolkien. Its project instruction bridge loads the native catalog on demand. See [native library and adoption](NATIVE-AGENTS.md). This changes distribution contents, not workspace contract 0.2. Older adoptions require an explicit update; personal profiles/knowledge remain separate. Role availability is distinct from client recognition and independently executing agents. This is the implemented distribution procedure (DRAFT r1), not automatic canonical promotion in an adopting project.
+
 The portable workspace defines ADD state and records; it does not by itself inject behavior into an AI client. A project that wants Atena behavior must load project instructions through its root `AGENTS.md`. [`templates/AGENTS.md`](templates/AGENTS.md) is the copyable default: it activates Guided ADD, plan compliance, per-plan approval selection, and Atena Voice without replacing project-specific rules.
 
 ## `add.yaml` fields

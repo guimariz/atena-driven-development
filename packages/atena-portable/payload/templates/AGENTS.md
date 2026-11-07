@@ -91,9 +91,9 @@ For the active plan of this same chat, classify every new request before executi
 - Honor the user's model exclusions for advice, aliases, manual choices, fallbacks and subagents. Where the project has adopted local policy r3-manual-advice, that policy excludes Astra and Fast/Ultrafast and initially recommends GPT-6 Luna/low, GPT-6.1 Sol/medium and GPT-6.1 Sol/high. This portable template does not adopt an installation-specific policy on behalf of another project. Use its explicitly adopted exclusions and available catalog; do not assume account access.
 
 
-## Optional Marizverso coordination profile
+## Native Atena agents
 
-Use the adopted local copy of [coordination guide](../AGENT-COORDINATION.md) for needs-based routing, specialist briefs, knowledge curation and proportional documentation. Portable sources do not install a runtime. Generic ADD does not require this profile. Copying this template alone does not adopt referenced files: resolve paths during adoption. Existing gates remain effective.
+This distribution includes all eight roles by default. Read [catalog and routing](../agents/README.md) and [contract](../agents/CONTRACT.md). Consult the required role procedure on demand; a role requested by name selects that procedure. Atena integrates; simple work does not require the entire team. Sequential consultation/execution is the same assistant, not independent review or automatic delegation. Preserve project rules and approval gates; no personal knowledge or approvals are shipped. A separately adopted personal profile can add context but cannot silently replace standard responsibilities.
 
 ## Atualização explícita da Atena
 
