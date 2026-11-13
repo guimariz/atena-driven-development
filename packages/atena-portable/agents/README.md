@@ -18,3 +18,7 @@ Leia o [contrato](CONTRACT.md), identifique a necessidade e abra somente as inst
 Uma consulta simples pode ser resolvida pela Atena. Quando houver uma necessidade de domínio, consultar o procedimento correspondente e declarar a participação real. O usuário pode pedir um papel pelo nome. Uma troca de papel nesta sessão é execução sequencial pelo mesmo assistente; não é uma revisão independente. Instalação não inicia processos, instala ferramentas nem autoriza delegação. Se faltar capacidade para uma entrega, produzir os insumos textuais possíveis e indicar a pendência concreta.
 
 Após instalação/atualização aprovada, o AGENTS.md do projeto aponta para esta biblioteca no snapshot versionado. `atena-add agents <projeto>` lista a biblioteca efetivamente instalada; `status --details` distingue biblioteca, integridade e reconhecimento do cliente. Nenhuma instalação anterior muda sem atualização. Em outro PC, usar o mesmo pacote revisado e adotar no projeto; não há sincronização automática de memória. Em cloud/outro cliente, confirmar que as instruções do projeto foram realmente carregadas.
+
+## Extensão opcional de saúde
+
+Consulte o [catálogo de saúde](health/README.md) para ativar Dra. Bandeira e Dr. Drauzio no workspace. A extensão depende de ativação explícita nas instruções locais.
